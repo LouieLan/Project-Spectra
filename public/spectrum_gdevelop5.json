@@ -1,0 +1,2705 @@
+{
+  "firstLayout": "Stage_01",
+  "gdVersion": {
+    "build": 99,
+    "major": 5,
+    "minor": 4,
+    "revision": 215
+  },
+  "properties": {
+    "adaptGameAspectRatio": true,
+    "author": "Spectrum Spectral Platformer",
+    "folderProject": false,
+    "maxFPS": 60,
+    "minFPS": 20,
+    "name": "Spectrum",
+    "orientation": "landscape",
+    "packageName": "com.spectrum.spectralplatformer",
+    "pixelsRounding": false,
+    "projectUuid": "spectrum-gdevelop-5-project",
+    "scaleMode": "linear",
+    "sizeOnStartupMode": "adaptWidth",
+    "templateSlug": "",
+    "useExternalSourceFiles": false,
+    "version": "1.0.0",
+    "windowWidth": 1280,
+    "windowHeight": 720,
+    "workspaceType": ""
+  },
+  "resources": {
+    "resources": []
+  },
+  "objects": [
+    {
+      "assetStoreId": "",
+      "name": "Player",
+      "type": "Sprite",
+      "variables": [
+        {
+          "name": "Color",
+          "type": "string",
+          "value": "white"
+        },
+        {
+          "name": "IsSeparated",
+          "type": "boolean",
+          "value": false
+        }
+      ],
+      "effects": [],
+      "behaviors": [
+        {
+          "name": "PlatformerObject",
+          "type": "PlatformBehavior::PlatformerObjectBehavior",
+          "acceleration": 1248,
+          "deceleration": 1248,
+          "maxSpeed": 240,
+          "jumpSpeed": 580,
+          "gravity": 1200,
+          "maxFallingSpeed": 900,
+          "jumpSustainTime": 0.15,
+          "slopeMaxAngle": 45,
+          "canGrabPlatforms": false,
+          "roundCoordinates": false,
+          "ignoreDefaultControls": false
+        }
+      ],
+      "animations": [
+        {
+          "name": "Default",
+          "directions": [
+            {
+              "looping": true,
+              "timeBetweenFrames": 0.1,
+              "sprites": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "assetStoreId": "",
+      "name": "Platform",
+      "type": "TiledSprite",
+      "variables": [],
+      "effects": [],
+      "behaviors": [
+        {
+          "name": "Platform",
+          "type": "PlatformBehavior::PlatformBehavior",
+          "canBeGrabbed": false,
+          "platformType": "Normal"
+        }
+      ]
+    },
+    {
+      "assetStoreId": "",
+      "name": "SpectralBarrier",
+      "type": "TiledSprite",
+      "variables": [
+        {
+          "name": "Color",
+          "type": "string",
+          "value": "red"
+        }
+      ],
+      "effects": [],
+      "behaviors": [
+        {
+          "name": "Platform",
+          "type": "PlatformBehavior::PlatformBehavior",
+          "canBeGrabbed": false,
+          "platformType": "Normal"
+        }
+      ]
+    },
+    {
+      "assetStoreId": "",
+      "name": "Portal",
+      "type": "Sprite",
+      "variables": [
+        {
+          "name": "Color",
+          "type": "string",
+          "value": "red"
+        }
+      ],
+      "effects": [],
+      "behaviors": [],
+      "animations": [
+        {
+          "name": "Default",
+          "directions": [
+            {
+              "looping": true,
+              "timeBetweenFrames": 0.1,
+              "sprites": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "assetStoreId": "",
+      "name": "CollectibleBall",
+      "type": "Sprite",
+      "variables": [
+        {
+          "name": "Color",
+          "type": "string",
+          "value": "white"
+        },
+        {
+          "name": "BallId",
+          "type": "string",
+          "value": ""
+        }
+      ],
+      "effects": [],
+      "behaviors": [],
+      "animations": [
+        {
+          "name": "Default",
+          "directions": [
+            {
+              "looping": true,
+              "timeBetweenFrames": 0.1,
+              "sprites": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "assetStoreId": "",
+      "name": "ExitBeacon",
+      "type": "Sprite",
+      "variables": [
+        {
+          "name": "Active",
+          "type": "boolean",
+          "value": false
+        }
+      ],
+      "effects": [],
+      "behaviors": [],
+      "animations": [
+        {
+          "name": "Default",
+          "directions": [
+            {
+              "looping": true,
+              "timeBetweenFrames": 0.1,
+              "sprites": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "objectsFolders": [],
+  "eventsFunctionsExtensions": [],
+  "externalEvents": [],
+  "externalLayouts": [],
+  "externalSourceFiles": [],
+  "layouts": [
+    {
+      "name": "Stage_01",
+      "title": "STAGE 01: Genesis",
+      "r": 5,
+      "v": 5,
+      "b": 7,
+      "standardSortMethod": true,
+      "stopSoundsOnStartup": false,
+      "mangledName": "Stage_01",
+      "disableInputWhenNotFocused": true,
+      "objects": [],
+      "layers": [
+        {
+          "name": "",
+          "visibility": true,
+          "cameras": [
+            {
+              "defaultSize": true,
+              "defaultViewport": true,
+              "height": 0,
+              "viewportBottom": 1,
+              "viewportLeft": 0,
+              "viewportRight": 1,
+              "viewportTop": 0,
+              "width": 0
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "instances": [
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 44,
+          "height": 44,
+          "layer": "",
+          "name": "Player",
+          "persistentUuid": "player-start-1",
+          "x": 98,
+          "y": 538,
+          "zOrder": 10,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "white"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 1280,
+          "height": 110,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "platform-1-0",
+          "x": 0,
+          "y": 610,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 260,
+          "height": 30,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "platform-1-1",
+          "x": 460,
+          "y": 530,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 48,
+          "height": 48,
+          "layer": "",
+          "name": "CollectibleBall",
+          "persistentUuid": "ball-1-0",
+          "x": 256,
+          "y": 531,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "white"
+            },
+            {
+              "name": "BallId",
+              "type": "string",
+              "value": "b1_white_1"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 48,
+          "height": 48,
+          "layer": "",
+          "name": "CollectibleBall",
+          "persistentUuid": "ball-1-1",
+          "x": 566,
+          "y": 441,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "white"
+            },
+            {
+              "name": "BallId",
+              "type": "string",
+              "value": "b1_white_2"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 48,
+          "height": 48,
+          "layer": "",
+          "name": "CollectibleBall",
+          "persistentUuid": "ball-1-2",
+          "x": 856,
+          "y": 531,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "white"
+            },
+            {
+              "name": "BallId",
+              "type": "string",
+              "value": "b1_white_3"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 70,
+          "height": 180,
+          "layer": "",
+          "name": "ExitBeacon",
+          "persistentUuid": "exit-1",
+          "x": 1080,
+          "y": 430,
+          "zOrder": 2,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Active",
+              "type": "boolean",
+              "value": false
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "Player",
+                "CollectibleBall",
+                "",
+                "",
+                ""
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "Delete"
+              },
+              "parameters": [
+                "CollectibleBall"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "BallsCollected",
+                "+",
+                "1"
+              ],
+              "subInstructions": []
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "Player",
+                "ExitBeacon",
+                "",
+                "",
+                ""
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "VarScene"
+              },
+              "parameters": [
+                "BallsCollected",
+                ">=",
+                "3"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "PushScene"
+              },
+              "parameters": [
+                "\"Stage_02\""
+              ],
+              "subInstructions": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Stage_02",
+      "title": "STAGE 02: Bichromatic",
+      "r": 5,
+      "v": 5,
+      "b": 7,
+      "standardSortMethod": true,
+      "stopSoundsOnStartup": false,
+      "mangledName": "Stage_02",
+      "disableInputWhenNotFocused": true,
+      "objects": [],
+      "layers": [
+        {
+          "name": "",
+          "visibility": true,
+          "cameras": [
+            {
+              "defaultSize": true,
+              "defaultViewport": true,
+              "height": 0,
+              "viewportBottom": 1,
+              "viewportLeft": 0,
+              "viewportRight": 1,
+              "viewportTop": 0,
+              "width": 0
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "instances": [
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 44,
+          "height": 44,
+          "layer": "",
+          "name": "Player",
+          "persistentUuid": "player-start-2",
+          "x": 128,
+          "y": 178,
+          "zOrder": 10,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "white"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 1280,
+          "height": 110,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "platform-2-0",
+          "x": 0,
+          "y": 610,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 350,
+          "height": 42,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "platform-2-1",
+          "x": 0,
+          "y": 250,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 70,
+          "height": 80,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "platform-2-2",
+          "x": 340,
+          "y": 530,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 500,
+          "height": 35,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "platform-2-3",
+          "x": 420,
+          "y": 450,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 58,
+          "height": 80,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "platform-2-4",
+          "x": 620,
+          "y": 530,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 76,
+          "height": 116,
+          "layer": "",
+          "name": "Portal",
+          "persistentUuid": "portal-2-0",
+          "x": 122,
+          "y": 492,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "red"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 76,
+          "height": 110,
+          "layer": "",
+          "name": "Portal",
+          "persistentUuid": "portal-2-1",
+          "x": 532,
+          "y": 340,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "green"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 48,
+          "height": 48,
+          "layer": "",
+          "name": "CollectibleBall",
+          "persistentUuid": "ball-2-0",
+          "x": 766,
+          "y": 526,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "red"
+            },
+            {
+              "name": "BallId",
+              "type": "string",
+              "value": "b2_red"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 48,
+          "height": 48,
+          "layer": "",
+          "name": "CollectibleBall",
+          "persistentUuid": "ball-2-1",
+          "x": 766,
+          "y": 371,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "green"
+            },
+            {
+              "name": "BallId",
+              "type": "string",
+              "value": "b2_green"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 70,
+          "height": 180,
+          "layer": "",
+          "name": "ExitBeacon",
+          "persistentUuid": "exit-2",
+          "x": 1120,
+          "y": 430,
+          "zOrder": 2,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Active",
+              "type": "boolean",
+              "value": false
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "Player",
+                "CollectibleBall",
+                "",
+                "",
+                ""
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "Delete"
+              },
+              "parameters": [
+                "CollectibleBall"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "BallsCollected",
+                "+",
+                "1"
+              ],
+              "subInstructions": []
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "Player",
+                "ExitBeacon",
+                "",
+                "",
+                ""
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "VarScene"
+              },
+              "parameters": [
+                "BallsCollected",
+                ">=",
+                "2"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "PushScene"
+              },
+              "parameters": [
+                "\"Stage_03\""
+              ],
+              "subInstructions": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Stage_03",
+      "title": "STAGE 03: Full Spectrum",
+      "r": 5,
+      "v": 5,
+      "b": 7,
+      "standardSortMethod": true,
+      "stopSoundsOnStartup": false,
+      "mangledName": "Stage_03",
+      "disableInputWhenNotFocused": true,
+      "objects": [],
+      "layers": [
+        {
+          "name": "",
+          "visibility": true,
+          "cameras": [
+            {
+              "defaultSize": true,
+              "defaultViewport": true,
+              "height": 0,
+              "viewportBottom": 1,
+              "viewportLeft": 0,
+              "viewportRight": 1,
+              "viewportTop": 0,
+              "width": 0
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "instances": [
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 44,
+          "height": 44,
+          "layer": "",
+          "name": "Player",
+          "persistentUuid": "player-start-3",
+          "x": 68,
+          "y": 538,
+          "zOrder": 10,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "white"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 1280,
+          "height": 110,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "platform-3-0",
+          "x": 0,
+          "y": 610,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 60,
+          "height": 70,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "platform-3-1",
+          "x": 390,
+          "y": 540,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 60,
+          "height": 70,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "platform-3-2",
+          "x": 680,
+          "y": 540,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 60,
+          "height": 70,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "platform-3-3",
+          "x": 950,
+          "y": 540,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 140,
+          "height": 65,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "platform-3-4",
+          "x": 1140,
+          "y": 545,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 72,
+          "height": 112,
+          "layer": "",
+          "name": "Portal",
+          "persistentUuid": "portal-3-0",
+          "x": 214,
+          "y": 494,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "red"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 72,
+          "height": 112,
+          "layer": "",
+          "name": "Portal",
+          "persistentUuid": "portal-3-1",
+          "x": 504,
+          "y": 494,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "green"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 72,
+          "height": 112,
+          "layer": "",
+          "name": "Portal",
+          "persistentUuid": "portal-3-2",
+          "x": 784,
+          "y": 494,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "blue"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 46,
+          "height": 46,
+          "layer": "",
+          "name": "CollectibleBall",
+          "persistentUuid": "ball-3-0",
+          "x": 397,
+          "y": 457,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "red"
+            },
+            {
+              "name": "BallId",
+              "type": "string",
+              "value": "b3_red"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 46,
+          "height": 46,
+          "layer": "",
+          "name": "CollectibleBall",
+          "persistentUuid": "ball-3-1",
+          "x": 687,
+          "y": 457,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "green"
+            },
+            {
+              "name": "BallId",
+              "type": "string",
+              "value": "b3_green"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 46,
+          "height": 46,
+          "layer": "",
+          "name": "CollectibleBall",
+          "persistentUuid": "ball-3-2",
+          "x": 957,
+          "y": 457,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "blue"
+            },
+            {
+              "name": "BallId",
+              "type": "string",
+              "value": "b3_blue"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 65,
+          "height": 180,
+          "layer": "",
+          "name": "ExitBeacon",
+          "persistentUuid": "exit-3",
+          "x": 1195,
+          "y": 365,
+          "zOrder": 2,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Active",
+              "type": "boolean",
+              "value": false
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "Player",
+                "CollectibleBall",
+                "",
+                "",
+                ""
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "Delete"
+              },
+              "parameters": [
+                "CollectibleBall"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "BallsCollected",
+                "+",
+                "1"
+              ],
+              "subInstructions": []
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "Player",
+                "ExitBeacon",
+                "",
+                "",
+                ""
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "VarScene"
+              },
+              "parameters": [
+                "BallsCollected",
+                ">=",
+                "3"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "PushScene"
+              },
+              "parameters": [
+                "\"Stage_04\""
+              ],
+              "subInstructions": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Stage_04",
+      "title": "STAGE 04: Chromatic Filters",
+      "r": 5,
+      "v": 5,
+      "b": 7,
+      "standardSortMethod": true,
+      "stopSoundsOnStartup": false,
+      "mangledName": "Stage_04",
+      "disableInputWhenNotFocused": true,
+      "objects": [],
+      "layers": [
+        {
+          "name": "",
+          "visibility": true,
+          "cameras": [
+            {
+              "defaultSize": true,
+              "defaultViewport": true,
+              "height": 0,
+              "viewportBottom": 1,
+              "viewportLeft": 0,
+              "viewportRight": 1,
+              "viewportTop": 0,
+              "width": 0
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "instances": [
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 44,
+          "height": 44,
+          "layer": "",
+          "name": "Player",
+          "persistentUuid": "player-start-4",
+          "x": 78,
+          "y": 538,
+          "zOrder": 10,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "white"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 1280,
+          "height": 110,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "platform-4-0",
+          "x": 0,
+          "y": 610,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 60,
+          "height": 75,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "platform-4-1",
+          "x": 320,
+          "y": 535,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 190,
+          "height": 25,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "platform-4-2",
+          "x": 410,
+          "y": 480,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 24,
+          "height": 105,
+          "layer": "",
+          "name": "SpectralBarrier",
+          "persistentUuid": "barrier-4-3",
+          "x": 410,
+          "y": 505,
+          "zOrder": 2,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "red"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 24,
+          "height": 105,
+          "layer": "",
+          "name": "SpectralBarrier",
+          "persistentUuid": "barrier-4-4",
+          "x": 576,
+          "y": 505,
+          "zOrder": 2,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "red"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 200,
+          "height": 25,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "platform-4-5",
+          "x": 650,
+          "y": 440,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 190,
+          "height": 25,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "platform-4-6",
+          "x": 890,
+          "y": 440,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 190,
+          "height": 25,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "platform-4-7",
+          "x": 890,
+          "y": 310,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 24,
+          "height": 105,
+          "layer": "",
+          "name": "SpectralBarrier",
+          "persistentUuid": "barrier-4-8",
+          "x": 890,
+          "y": 335,
+          "zOrder": 2,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "green"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 24,
+          "height": 105,
+          "layer": "",
+          "name": "SpectralBarrier",
+          "persistentUuid": "barrier-4-9",
+          "x": 1056,
+          "y": 335,
+          "zOrder": 2,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "green"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 72,
+          "height": 112,
+          "layer": "",
+          "name": "Portal",
+          "persistentUuid": "portal-4-0",
+          "x": 214,
+          "y": 494,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "red"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 72,
+          "height": 112,
+          "layer": "",
+          "name": "Portal",
+          "persistentUuid": "portal-4-1",
+          "x": 714,
+          "y": 324,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "green"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 46,
+          "height": 46,
+          "layer": "",
+          "name": "CollectibleBall",
+          "persistentUuid": "ball-4-0",
+          "x": 472,
+          "y": 532,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "red"
+            },
+            {
+              "name": "BallId",
+              "type": "string",
+              "value": "b4_red"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 46,
+          "height": 46,
+          "layer": "",
+          "name": "CollectibleBall",
+          "persistentUuid": "ball-4-1",
+          "x": 952,
+          "y": 362,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "green"
+            },
+            {
+              "name": "BallId",
+              "type": "string",
+              "value": "b4_green"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 70,
+          "height": 180,
+          "layer": "",
+          "name": "ExitBeacon",
+          "persistentUuid": "exit-4",
+          "x": 1160,
+          "y": 430,
+          "zOrder": 2,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Active",
+              "type": "boolean",
+              "value": false
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "Player",
+                "CollectibleBall",
+                "",
+                "",
+                ""
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "Delete"
+              },
+              "parameters": [
+                "CollectibleBall"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "BallsCollected",
+                "+",
+                "1"
+              ],
+              "subInstructions": []
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "Player",
+                "ExitBeacon",
+                "",
+                "",
+                ""
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "VarScene"
+              },
+              "parameters": [
+                "BallsCollected",
+                ">=",
+                "2"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "PushScene"
+              },
+              "parameters": [
+                "\"Stage_05\""
+              ],
+              "subInstructions": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Stage_05",
+      "title": "STAGE 05: Prismatic Velocity",
+      "r": 5,
+      "v": 5,
+      "b": 7,
+      "standardSortMethod": true,
+      "stopSoundsOnStartup": false,
+      "mangledName": "Stage_05",
+      "disableInputWhenNotFocused": true,
+      "objects": [],
+      "layers": [
+        {
+          "name": "",
+          "visibility": true,
+          "cameras": [
+            {
+              "defaultSize": true,
+              "defaultViewport": true,
+              "height": 0,
+              "viewportBottom": 1,
+              "viewportLeft": 0,
+              "viewportRight": 1,
+              "viewportTop": 0,
+              "width": 0
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "instances": [
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 44,
+          "height": 44,
+          "layer": "",
+          "name": "Player",
+          "persistentUuid": "player-start-5",
+          "x": 68,
+          "y": 538,
+          "zOrder": 10,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "white"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 1280,
+          "height": 110,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "platform-5-0",
+          "x": 0,
+          "y": 610,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 180,
+          "height": 35,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "platform-5-1",
+          "x": 280,
+          "y": 510,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 180,
+          "height": 35,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "platform-5-2",
+          "x": 540,
+          "y": 410,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 220,
+          "height": 35,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "platform-5-3",
+          "x": 800,
+          "y": 310,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 26,
+          "height": 300,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "platform-5-4",
+          "x": 740,
+          "y": 310,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 72,
+          "height": 112,
+          "layer": "",
+          "name": "Portal",
+          "persistentUuid": "portal-5-0",
+          "x": 334,
+          "y": 394,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "green"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 72,
+          "height": 112,
+          "layer": "",
+          "name": "Portal",
+          "persistentUuid": "portal-5-1",
+          "x": 594,
+          "y": 294,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "blue"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 72,
+          "height": 112,
+          "layer": "",
+          "name": "Portal",
+          "persistentUuid": "portal-5-2",
+          "x": 154,
+          "y": 494,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "red"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 46,
+          "height": 46,
+          "layer": "",
+          "name": "CollectibleBall",
+          "persistentUuid": "ball-5-0",
+          "x": 357,
+          "y": 527,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "red"
+            },
+            {
+              "name": "BallId",
+              "type": "string",
+              "value": "b5_red"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 46,
+          "height": 46,
+          "layer": "",
+          "name": "CollectibleBall",
+          "persistentUuid": "ball-5-1",
+          "x": 607,
+          "y": 247,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "green"
+            },
+            {
+              "name": "BallId",
+              "type": "string",
+              "value": "b5_green"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 46,
+          "height": 46,
+          "layer": "",
+          "name": "CollectibleBall",
+          "persistentUuid": "ball-5-2",
+          "x": 887,
+          "y": 227,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "blue"
+            },
+            {
+              "name": "BallId",
+              "type": "string",
+              "value": "b5_blue"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 70,
+          "height": 180,
+          "layer": "",
+          "name": "ExitBeacon",
+          "persistentUuid": "exit-5",
+          "x": 1140,
+          "y": 430,
+          "zOrder": 2,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Active",
+              "type": "boolean",
+              "value": false
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "Player",
+                "CollectibleBall",
+                "",
+                "",
+                ""
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "Delete"
+              },
+              "parameters": [
+                "CollectibleBall"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "BallsCollected",
+                "+",
+                "1"
+              ],
+              "subInstructions": []
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "Player",
+                "ExitBeacon",
+                "",
+                "",
+                ""
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "VarScene"
+              },
+              "parameters": [
+                "BallsCollected",
+                ">=",
+                "3"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "PushScene"
+              },
+              "parameters": [
+                "\"Stage_06\""
+              ],
+              "subInstructions": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Stage_06",
+      "title": "STAGE 06: Recombination",
+      "r": 5,
+      "v": 5,
+      "b": 7,
+      "standardSortMethod": true,
+      "stopSoundsOnStartup": false,
+      "mangledName": "Stage_06",
+      "disableInputWhenNotFocused": true,
+      "objects": [],
+      "layers": [
+        {
+          "name": "",
+          "visibility": true,
+          "cameras": [
+            {
+              "defaultSize": true,
+              "defaultViewport": true,
+              "height": 0,
+              "viewportBottom": 1,
+              "viewportLeft": 0,
+              "viewportRight": 1,
+              "viewportTop": 0,
+              "width": 0
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "instances": [
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 44,
+          "height": 44,
+          "layer": "",
+          "name": "Player",
+          "persistentUuid": "player-start-6",
+          "x": 78,
+          "y": 538,
+          "zOrder": 10,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "white"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 1280,
+          "height": 110,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "platform-6-0",
+          "x": 0,
+          "y": 610,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 160,
+          "height": 35,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "platform-6-1",
+          "x": 260,
+          "y": 510,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 160,
+          "height": 35,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "platform-6-2",
+          "x": 500,
+          "y": 420,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 160,
+          "height": 35,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "platform-6-3",
+          "x": 740,
+          "y": 330,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 300,
+          "height": 40,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "platform-6-4",
+          "x": 980,
+          "y": 360,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 26,
+          "height": 390,
+          "layer": "",
+          "name": "SpectralBarrier",
+          "persistentUuid": "barrier-6-5",
+          "x": 960,
+          "y": 220,
+          "zOrder": 2,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "blue"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 72,
+          "height": 112,
+          "layer": "",
+          "name": "Portal",
+          "persistentUuid": "portal-6-0",
+          "x": 174,
+          "y": 494,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "red"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 72,
+          "height": 112,
+          "layer": "",
+          "name": "Portal",
+          "persistentUuid": "portal-6-1",
+          "x": 304,
+          "y": 394,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "green"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 72,
+          "height": 112,
+          "layer": "",
+          "name": "Portal",
+          "persistentUuid": "portal-6-2",
+          "x": 544,
+          "y": 304,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "blue"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 46,
+          "height": 46,
+          "layer": "",
+          "name": "CollectibleBall",
+          "persistentUuid": "ball-6-0",
+          "x": 397,
+          "y": 527,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "red"
+            },
+            {
+              "name": "BallId",
+              "type": "string",
+              "value": "b6_red"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 46,
+          "height": 46,
+          "layer": "",
+          "name": "CollectibleBall",
+          "persistentUuid": "ball-6-1",
+          "x": 647,
+          "y": 357,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "green"
+            },
+            {
+              "name": "BallId",
+              "type": "string",
+              "value": "b6_green"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 46,
+          "height": 46,
+          "layer": "",
+          "name": "CollectibleBall",
+          "persistentUuid": "ball-6-2",
+          "x": 1097,
+          "y": 277,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "blue"
+            },
+            {
+              "name": "BallId",
+              "type": "string",
+              "value": "b6_blue"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 70,
+          "height": 180,
+          "layer": "",
+          "name": "ExitBeacon",
+          "persistentUuid": "exit-6",
+          "x": 1180,
+          "y": 180,
+          "zOrder": 2,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Active",
+              "type": "boolean",
+              "value": false
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "Player",
+                "CollectibleBall",
+                "",
+                "",
+                ""
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "Delete"
+              },
+              "parameters": [
+                "CollectibleBall"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "BallsCollected",
+                "+",
+                "1"
+              ],
+              "subInstructions": []
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "Player",
+                "ExitBeacon",
+                "",
+                "",
+                ""
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "VarScene"
+              },
+              "parameters": [
+                "BallsCollected",
+                ">=",
+                "3"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "PushScene"
+              },
+              "parameters": [
+                "\"Stage_07\""
+              ],
+              "subInstructions": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Stage_07",
+      "title": "LEVEL 7: Chromatic Fusion",
+      "r": 5,
+      "v": 5,
+      "b": 7,
+      "standardSortMethod": true,
+      "stopSoundsOnStartup": false,
+      "mangledName": "Stage_07",
+      "disableInputWhenNotFocused": true,
+      "objects": [],
+      "layers": [
+        {
+          "name": "",
+          "visibility": true,
+          "cameras": [
+            {
+              "defaultSize": true,
+              "defaultViewport": true,
+              "height": 0,
+              "viewportBottom": 1,
+              "viewportLeft": 0,
+              "viewportRight": 1,
+              "viewportTop": 0,
+              "width": 0
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "instances": [
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 44,
+          "height": 44,
+          "layer": "",
+          "name": "Player",
+          "persistentUuid": "player-start-7",
+          "x": 98,
+          "y": 498,
+          "zOrder": 10,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "white"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 350,
+          "height": 140,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "platform-7-0",
+          "x": 0,
+          "y": 580,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 110,
+          "height": 145,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "platform-7-1",
+          "x": 410,
+          "y": 495,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 110,
+          "height": 145,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "platform-7-2",
+          "x": 580,
+          "y": 495,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 110,
+          "height": 145,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "platform-7-3",
+          "x": 750,
+          "y": 495,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 420,
+          "height": 120,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "platform-7-4",
+          "x": 860,
+          "y": 600,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 72,
+          "height": 112,
+          "layer": "",
+          "name": "Portal",
+          "persistentUuid": "portal-7-0",
+          "x": 194,
+          "y": 464,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "red"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 68,
+          "height": 108,
+          "layer": "",
+          "name": "Portal",
+          "persistentUuid": "portal-7-1",
+          "x": 601,
+          "y": 376,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "blue"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 40,
+          "height": 40,
+          "layer": "",
+          "name": "CollectibleBall",
+          "persistentUuid": "ball-7-0",
+          "x": 445,
+          "y": 405,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "yellow"
+            },
+            {
+              "name": "BallId",
+              "type": "string",
+              "value": "b7_yellow"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "width": 70,
+          "height": 180,
+          "layer": "",
+          "name": "ExitBeacon",
+          "persistentUuid": "exit-7",
+          "x": 1140,
+          "y": 420,
+          "zOrder": 2,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Active",
+              "type": "boolean",
+              "value": false
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "Player",
+                "CollectibleBall",
+                "",
+                "",
+                ""
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "Delete"
+              },
+              "parameters": [
+                "CollectibleBall"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "BallsCollected",
+                "+",
+                "1"
+              ],
+              "subInstructions": []
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "Player",
+                "ExitBeacon",
+                "",
+                "",
+                ""
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "VarScene"
+              },
+              "parameters": [
+                "BallsCollected",
+                ">=",
+                "1"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "PushScene"
+              },
+              "parameters": [
+                "\"Stage_01\""
+              ],
+              "subInstructions": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,5011 @@
+{
+  "firstLayout": "Stage_01",
+  "previewLayout": "",
+  "gdVersion": {
+    "build": 99,
+    "major": 5,
+    "minor": 4,
+    "revision": 215
+  },
+  "properties": {
+    "adaptGameResolutionAtRuntime": true,
+    "antialiasingMode": "MSAA",
+    "antialisingEnabledOnMobile": false,
+    "author": "Spectrum Spectral Platformer",
+    "authorIds": [],
+    "authorUsernames": [],
+    "categories": [],
+    "currentPlatform": "GDevelop JS platform",
+    "description": "A spectral color-switching puzzle platformer.",
+    "extensionProperties": [],
+    "folderProject": false,
+    "latestCompilationDirectory": "",
+    "loadingScreen": {
+      "backgroundColor": 0,
+      "backgroundFadeInDuration": 0.2,
+      "fadeRate": 1,
+      "gdevelopLogoStyle": "light",
+      "logoAndProgressColor": 16777215,
+      "logoAndProgressFadeInDuration": 0.2,
+      "minDuration": 1.5,
+      "progressBarColor": 0,
+      "progressBarHeight": 0,
+      "progressBarMaxWidth": 0,
+      "progressBarWidthPercent": 100,
+      "showGDevelopLogo": true,
+      "showProgressBar": false
+    },
+    "maxFPS": 60,
+    "minFPS": 20,
+    "name": "Spectrum",
+    "orientation": "landscape",
+    "packageName": "com.spectrum.spectralplatformer",
+    "pixelsRounding": false,
+    "platformSpecificAssets": {
+      "android-icon-144": "",
+      "android-icon-192": "",
+      "android-icon-36": "",
+      "android-icon-48": "",
+      "android-icon-72": "",
+      "android-icon-96": "",
+      "android-windowSplashScreenAnimatedIcon": "",
+      "desktop-icon-512": "",
+      "ios-icon-1024": "",
+      "ios-icon-120": "",
+      "ios-icon-152": "",
+      "ios-icon-167": "",
+      "ios-icon-180": ""
+    },
+    "platforms": [
+      {
+        "name": "GDevelop JS platform"
+      }
+    ],
+    "playableDevices": [
+      "keyboard",
+      "gamepad"
+    ],
+    "projectUuid": "7b1656ca-5d63-4896-b9eb-158dc6aea1b2",
+    "scaleMode": "linear",
+    "sizeOnStartupMode": "adaptWidth",
+    "templateSlug": "",
+    "useExternalSourceFiles": false,
+    "version": "1.0.0",
+    "verticalSync": false,
+    "watermark": {
+      "placement": "bottom-left",
+      "showWatermark": true
+    },
+    "windowWidth": 1280,
+    "windowHeight": 720
+  },
+  "resources": {
+    "resources": [],
+    "resourceFolders": []
+  },
+  "objects": [],
+  "objectsFolderStructure": {
+    "folderName": "__ROOT"
+  },
+  "objectsGroups": [],
+  "variables": [],
+  "layouts": [
+    {
+      "b": 7,
+      "disableInputWhenNotFocused": true,
+      "mangledName": "Stage_01",
+      "name": "Stage_01",
+      "r": 5,
+      "standardSortMethod": true,
+      "stopSoundsOnStartup": false,
+      "title": "STAGE 01: Genesis",
+      "v": 5,
+      "uiSettings": {
+        "grid": true,
+        "gridType": "rectangular",
+        "gridWidth": 16,
+        "gridHeight": 16,
+        "gridOffsetX": 0,
+        "gridOffsetY": 0,
+        "gridColor": 10401023,
+        "gridAlpha": 0.8,
+        "snap": true,
+        "zoomFactor": 1,
+        "windowMask": false
+      },
+      "objectsGroups": [],
+      "variables": [
+        {
+          "name": "BallsCollected",
+          "type": "number",
+          "value": 0
+        }
+      ],
+      "instances": [
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 44,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Player",
+          "persistentUuid": "7674e0ad-d55c-4b9b-9262-dcf2810f3091",
+          "width": 44,
+          "x": 98,
+          "y": 538,
+          "zOrder": 10,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "white"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 110,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "968e4429-5d4e-43d9-90cd-0ca0896267ba",
+          "width": 1280,
+          "x": 0,
+          "y": 610,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 30,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "adfeb00b-43ff-4220-9df4-bf6c847e6c8f",
+          "width": 260,
+          "x": 460,
+          "y": 530,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 48,
+          "keepRatio": false,
+          "layer": "",
+          "name": "CollectibleBall",
+          "persistentUuid": "f40d8e5d-fd37-4052-a2e8-c668be538058",
+          "width": 48,
+          "x": 256,
+          "y": 531,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "white"
+            },
+            {
+              "name": "BallId",
+              "type": "string",
+              "value": "b1_white_1"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 48,
+          "keepRatio": false,
+          "layer": "",
+          "name": "CollectibleBall",
+          "persistentUuid": "c195594c-48a7-4e3e-a13e-e96f38fdd2c1",
+          "width": 48,
+          "x": 566,
+          "y": 441,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "white"
+            },
+            {
+              "name": "BallId",
+              "type": "string",
+              "value": "b1_white_2"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 48,
+          "keepRatio": false,
+          "layer": "",
+          "name": "CollectibleBall",
+          "persistentUuid": "141b37ae-6ebd-4745-b098-d7a212cf3540",
+          "width": 48,
+          "x": 856,
+          "y": 531,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "white"
+            },
+            {
+              "name": "BallId",
+              "type": "string",
+              "value": "b1_white_3"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 180,
+          "keepRatio": false,
+          "layer": "",
+          "name": "ExitBeacon",
+          "persistentUuid": "968a9f61-b010-4195-ae18-69a161f929a4",
+          "width": 70,
+          "x": 1080,
+          "y": 430,
+          "zOrder": 2,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Active",
+              "type": "boolean",
+              "value": false
+            }
+          ]
+        }
+      ],
+      "objects": [
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "Player",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "white"
+            },
+            {
+              "name": "IsSeparated",
+              "type": "boolean",
+              "value": false
+            }
+          ],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "PlatformerObject",
+              "type": "PlatformBehavior::PlatformerObjectBehavior",
+              "acceleration": 1248,
+              "canGoDownFromJumpthru": true,
+              "canGrabPlatforms": false,
+              "canGrabWithoutMoving": false,
+              "deceleration": 1248,
+              "gravity": 1200,
+              "ignoreDefaultControls": false,
+              "jumpSpeed": 580,
+              "jumpSustainTime": 0.15,
+              "ladderClimbingSpeed": 150,
+              "maxFallingSpeed": 900,
+              "maxSpeed": 240,
+              "roundCoordinates": false,
+              "slopeMaxAngle": 60,
+              "useLegacyTrajectory": false,
+              "xGrabTolerance": 10,
+              "yGrabOffset": 0
+            }
+          ],
+          "animations": [
+            {
+              "name": "Default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.1,
+                  "sprites": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "height": 32,
+          "name": "Platform",
+          "texture": "",
+          "type": "TiledSpriteObject::TiledSprite",
+          "width": 32,
+          "variables": [],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "Platform",
+              "type": "PlatformBehavior::PlatformBehavior",
+              "canBeGrabbed": false,
+              "platformType": "Normal",
+              "yGrabOffset": 0
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "height": 32,
+          "name": "SpectralBarrier",
+          "texture": "",
+          "type": "TiledSpriteObject::TiledSprite",
+          "width": 32,
+          "variables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "red"
+            }
+          ],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "Platform",
+              "type": "PlatformBehavior::PlatformBehavior",
+              "canBeGrabbed": false,
+              "platformType": "Normal",
+              "yGrabOffset": 0
+            }
+          ]
+        },
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "Portal",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "red"
+            }
+          ],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "Default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.1,
+                  "sprites": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "CollectibleBall",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "white"
+            },
+            {
+              "name": "BallId",
+              "type": "string",
+              "value": ""
+            }
+          ],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "Default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.1,
+                  "sprites": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "ExitBeacon",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [
+            {
+              "name": "Active",
+              "type": "boolean",
+              "value": false
+            }
+          ],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "Default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.1,
+                  "sprites": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "objectsFolderStructure": {
+        "folderName": "__ROOT",
+        "children": [
+          {
+            "objectName": "Player"
+          },
+          {
+            "objectName": "Platform"
+          },
+          {
+            "objectName": "SpectralBarrier"
+          },
+          {
+            "objectName": "Portal"
+          },
+          {
+            "objectName": "CollectibleBall"
+          },
+          {
+            "objectName": "ExitBeacon"
+          }
+        ]
+      },
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "SceneJustBegins"
+              },
+              "parameters": [
+                ""
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "BallsCollected",
+                "=",
+                "0"
+              ],
+              "subInstructions": []
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "Player",
+                "CollectibleBall",
+                "",
+                "",
+                ""
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "Delete"
+              },
+              "parameters": [
+                "CollectibleBall"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "BallsCollected",
+                "+",
+                "1"
+              ],
+              "subInstructions": []
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "Player",
+                "Portal",
+                "",
+                "",
+                ""
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarObjetTxt"
+              },
+              "parameters": [
+                "Player",
+                "Color",
+                "=",
+                "Portal.VariableString(Color)"
+              ],
+              "subInstructions": []
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "Player",
+                "ExitBeacon",
+                "",
+                "",
+                ""
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "VarScene"
+              },
+              "parameters": [
+                "BallsCollected",
+                ">=",
+                "3"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "PushScene"
+              },
+              "parameters": [
+                "\"Stage_02\""
+              ],
+              "subInstructions": []
+            }
+          ]
+        }
+      ],
+      "layers": [
+        {
+          "ambientLightColorB": 0,
+          "ambientLightColorG": 0,
+          "ambientLightColorR": 0,
+          "camera3DFarPlaneDistance": 10000,
+          "camera3DFieldOfView": 45,
+          "camera3DNearPlaneDistance": 0.1,
+          "cameraType": "",
+          "followBaseLayerCamera": false,
+          "isLightingLayer": false,
+          "isLocked": false,
+          "name": "",
+          "renderingType": "",
+          "visibility": true,
+          "cameras": [
+            {
+              "defaultSize": true,
+              "defaultViewport": true,
+              "height": 0,
+              "viewportBottom": 1,
+              "viewportLeft": 0,
+              "viewportRight": 1,
+              "viewportTop": 0,
+              "width": 0
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "behaviorsSharedData": [
+        {
+          "name": "Platform",
+          "type": "PlatformBehavior::PlatformBehavior"
+        },
+        {
+          "name": "PlatformerObject",
+          "type": "PlatformBehavior::PlatformerObjectBehavior"
+        }
+      ]
+    },
+    {
+      "b": 7,
+      "disableInputWhenNotFocused": true,
+      "mangledName": "Stage_02",
+      "name": "Stage_02",
+      "r": 5,
+      "standardSortMethod": true,
+      "stopSoundsOnStartup": false,
+      "title": "STAGE 02: Bichromatic",
+      "v": 5,
+      "uiSettings": {
+        "grid": true,
+        "gridType": "rectangular",
+        "gridWidth": 16,
+        "gridHeight": 16,
+        "gridOffsetX": 0,
+        "gridOffsetY": 0,
+        "gridColor": 10401023,
+        "gridAlpha": 0.8,
+        "snap": true,
+        "zoomFactor": 1,
+        "windowMask": false
+      },
+      "objectsGroups": [],
+      "variables": [
+        {
+          "name": "BallsCollected",
+          "type": "number",
+          "value": 0
+        }
+      ],
+      "instances": [
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 44,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Player",
+          "persistentUuid": "708be984-9cdb-4699-93c0-4687c14ed0ec",
+          "width": 44,
+          "x": 128,
+          "y": 178,
+          "zOrder": 10,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "white"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 110,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "ed4bebc2-8afb-4fbc-9a69-600bf0976cfd",
+          "width": 1280,
+          "x": 0,
+          "y": 610,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 42,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "a80c442c-f231-468d-b62c-17256ca88b6d",
+          "width": 350,
+          "x": 0,
+          "y": 250,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 80,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "07dba901-15cc-4be9-ac17-7d1bb4e853d6",
+          "width": 70,
+          "x": 340,
+          "y": 530,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 35,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "48cb4783-db36-431d-a1c1-5ec3071825eb",
+          "width": 500,
+          "x": 420,
+          "y": 450,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 80,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "27096674-3371-4eee-afa1-8bfb5c69e1c7",
+          "width": 58,
+          "x": 620,
+          "y": 530,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 116,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Portal",
+          "persistentUuid": "5a412629-cb1a-438b-8bb4-dd73923c5621",
+          "width": 76,
+          "x": 122,
+          "y": 492,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "red"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 110,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Portal",
+          "persistentUuid": "ce708f4b-49af-4f21-a865-5740539dd1fc",
+          "width": 76,
+          "x": 532,
+          "y": 340,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "green"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 48,
+          "keepRatio": false,
+          "layer": "",
+          "name": "CollectibleBall",
+          "persistentUuid": "f4e8966a-0422-4170-8a4e-ecf11791f9c5",
+          "width": 48,
+          "x": 766,
+          "y": 526,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "red"
+            },
+            {
+              "name": "BallId",
+              "type": "string",
+              "value": "b2_red"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 48,
+          "keepRatio": false,
+          "layer": "",
+          "name": "CollectibleBall",
+          "persistentUuid": "68238adc-5d24-4c8a-a77a-6c0945c036da",
+          "width": 48,
+          "x": 766,
+          "y": 371,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "green"
+            },
+            {
+              "name": "BallId",
+              "type": "string",
+              "value": "b2_green"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 180,
+          "keepRatio": false,
+          "layer": "",
+          "name": "ExitBeacon",
+          "persistentUuid": "3df7f3ce-e022-46f6-935e-3132388a629c",
+          "width": 70,
+          "x": 1120,
+          "y": 430,
+          "zOrder": 2,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Active",
+              "type": "boolean",
+              "value": false
+            }
+          ]
+        }
+      ],
+      "objects": [
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "Player",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "white"
+            },
+            {
+              "name": "IsSeparated",
+              "type": "boolean",
+              "value": false
+            }
+          ],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "PlatformerObject",
+              "type": "PlatformBehavior::PlatformerObjectBehavior",
+              "acceleration": 1248,
+              "canGoDownFromJumpthru": true,
+              "canGrabPlatforms": false,
+              "canGrabWithoutMoving": false,
+              "deceleration": 1248,
+              "gravity": 1200,
+              "ignoreDefaultControls": false,
+              "jumpSpeed": 580,
+              "jumpSustainTime": 0.15,
+              "ladderClimbingSpeed": 150,
+              "maxFallingSpeed": 900,
+              "maxSpeed": 240,
+              "roundCoordinates": false,
+              "slopeMaxAngle": 60,
+              "useLegacyTrajectory": false,
+              "xGrabTolerance": 10,
+              "yGrabOffset": 0
+            }
+          ],
+          "animations": [
+            {
+              "name": "Default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.1,
+                  "sprites": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "height": 32,
+          "name": "Platform",
+          "texture": "",
+          "type": "TiledSpriteObject::TiledSprite",
+          "width": 32,
+          "variables": [],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "Platform",
+              "type": "PlatformBehavior::PlatformBehavior",
+              "canBeGrabbed": false,
+              "platformType": "Normal",
+              "yGrabOffset": 0
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "height": 32,
+          "name": "SpectralBarrier",
+          "texture": "",
+          "type": "TiledSpriteObject::TiledSprite",
+          "width": 32,
+          "variables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "red"
+            }
+          ],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "Platform",
+              "type": "PlatformBehavior::PlatformBehavior",
+              "canBeGrabbed": false,
+              "platformType": "Normal",
+              "yGrabOffset": 0
+            }
+          ]
+        },
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "Portal",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "red"
+            }
+          ],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "Default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.1,
+                  "sprites": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "CollectibleBall",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "white"
+            },
+            {
+              "name": "BallId",
+              "type": "string",
+              "value": ""
+            }
+          ],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "Default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.1,
+                  "sprites": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "ExitBeacon",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [
+            {
+              "name": "Active",
+              "type": "boolean",
+              "value": false
+            }
+          ],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "Default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.1,
+                  "sprites": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "objectsFolderStructure": {
+        "folderName": "__ROOT",
+        "children": [
+          {
+            "objectName": "Player"
+          },
+          {
+            "objectName": "Platform"
+          },
+          {
+            "objectName": "SpectralBarrier"
+          },
+          {
+            "objectName": "Portal"
+          },
+          {
+            "objectName": "CollectibleBall"
+          },
+          {
+            "objectName": "ExitBeacon"
+          }
+        ]
+      },
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "SceneJustBegins"
+              },
+              "parameters": [
+                ""
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "BallsCollected",
+                "=",
+                "0"
+              ],
+              "subInstructions": []
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "Player",
+                "CollectibleBall",
+                "",
+                "",
+                ""
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "Delete"
+              },
+              "parameters": [
+                "CollectibleBall"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "BallsCollected",
+                "+",
+                "1"
+              ],
+              "subInstructions": []
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "Player",
+                "Portal",
+                "",
+                "",
+                ""
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarObjetTxt"
+              },
+              "parameters": [
+                "Player",
+                "Color",
+                "=",
+                "Portal.VariableString(Color)"
+              ],
+              "subInstructions": []
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "Player",
+                "ExitBeacon",
+                "",
+                "",
+                ""
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "VarScene"
+              },
+              "parameters": [
+                "BallsCollected",
+                ">=",
+                "2"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "PushScene"
+              },
+              "parameters": [
+                "\"Stage_03\""
+              ],
+              "subInstructions": []
+            }
+          ]
+        }
+      ],
+      "layers": [
+        {
+          "ambientLightColorB": 0,
+          "ambientLightColorG": 0,
+          "ambientLightColorR": 0,
+          "camera3DFarPlaneDistance": 10000,
+          "camera3DFieldOfView": 45,
+          "camera3DNearPlaneDistance": 0.1,
+          "cameraType": "",
+          "followBaseLayerCamera": false,
+          "isLightingLayer": false,
+          "isLocked": false,
+          "name": "",
+          "renderingType": "",
+          "visibility": true,
+          "cameras": [
+            {
+              "defaultSize": true,
+              "defaultViewport": true,
+              "height": 0,
+              "viewportBottom": 1,
+              "viewportLeft": 0,
+              "viewportRight": 1,
+              "viewportTop": 0,
+              "width": 0
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "behaviorsSharedData": [
+        {
+          "name": "Platform",
+          "type": "PlatformBehavior::PlatformBehavior"
+        },
+        {
+          "name": "PlatformerObject",
+          "type": "PlatformBehavior::PlatformerObjectBehavior"
+        }
+      ]
+    },
+    {
+      "b": 7,
+      "disableInputWhenNotFocused": true,
+      "mangledName": "Stage_03",
+      "name": "Stage_03",
+      "r": 5,
+      "standardSortMethod": true,
+      "stopSoundsOnStartup": false,
+      "title": "STAGE 03: Full Spectrum",
+      "v": 5,
+      "uiSettings": {
+        "grid": true,
+        "gridType": "rectangular",
+        "gridWidth": 16,
+        "gridHeight": 16,
+        "gridOffsetX": 0,
+        "gridOffsetY": 0,
+        "gridColor": 10401023,
+        "gridAlpha": 0.8,
+        "snap": true,
+        "zoomFactor": 1,
+        "windowMask": false
+      },
+      "objectsGroups": [],
+      "variables": [
+        {
+          "name": "BallsCollected",
+          "type": "number",
+          "value": 0
+        }
+      ],
+      "instances": [
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 44,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Player",
+          "persistentUuid": "561efb8e-8d8d-45c8-b25b-c31335b599bf",
+          "width": 44,
+          "x": 68,
+          "y": 538,
+          "zOrder": 10,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "white"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 110,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "eae13f07-0020-482a-bd86-b1f4ffb7881c",
+          "width": 1280,
+          "x": 0,
+          "y": 610,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 70,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "f7f3a8a7-c024-4aa7-a97e-2d90263aa95c",
+          "width": 60,
+          "x": 390,
+          "y": 540,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 70,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "b672f0ec-5e73-45a3-a0c8-bba4fbeeffa9",
+          "width": 60,
+          "x": 680,
+          "y": 540,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 70,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "63a1f295-87fc-401b-a5dc-f8390d210482",
+          "width": 60,
+          "x": 950,
+          "y": 540,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 65,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "3e61641b-6b6b-493f-be48-35ddb2ae9c48",
+          "width": 140,
+          "x": 1140,
+          "y": 545,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 112,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Portal",
+          "persistentUuid": "b30ac7ca-f71e-4692-ac50-55644d98bbc1",
+          "width": 72,
+          "x": 214,
+          "y": 494,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "red"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 112,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Portal",
+          "persistentUuid": "6307597b-fde8-480d-a05c-361544869506",
+          "width": 72,
+          "x": 504,
+          "y": 494,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "green"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 112,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Portal",
+          "persistentUuid": "af418fa7-1162-4918-96b1-28b1f4d9854a",
+          "width": 72,
+          "x": 784,
+          "y": 494,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "blue"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 46,
+          "keepRatio": false,
+          "layer": "",
+          "name": "CollectibleBall",
+          "persistentUuid": "8e11e1e8-8b36-494b-94ed-0f88e4a0a35b",
+          "width": 46,
+          "x": 397,
+          "y": 457,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "red"
+            },
+            {
+              "name": "BallId",
+              "type": "string",
+              "value": "b3_red"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 46,
+          "keepRatio": false,
+          "layer": "",
+          "name": "CollectibleBall",
+          "persistentUuid": "198060b3-d690-46f3-ad63-90f9a8f6de23",
+          "width": 46,
+          "x": 687,
+          "y": 457,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "green"
+            },
+            {
+              "name": "BallId",
+              "type": "string",
+              "value": "b3_green"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 46,
+          "keepRatio": false,
+          "layer": "",
+          "name": "CollectibleBall",
+          "persistentUuid": "a995b1fe-2b77-4bf3-8f44-10188a5962c9",
+          "width": 46,
+          "x": 957,
+          "y": 457,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "blue"
+            },
+            {
+              "name": "BallId",
+              "type": "string",
+              "value": "b3_blue"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 180,
+          "keepRatio": false,
+          "layer": "",
+          "name": "ExitBeacon",
+          "persistentUuid": "99bb758d-8c34-49ef-b46f-52ed18c6388a",
+          "width": 65,
+          "x": 1195,
+          "y": 365,
+          "zOrder": 2,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Active",
+              "type": "boolean",
+              "value": false
+            }
+          ]
+        }
+      ],
+      "objects": [
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "Player",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "white"
+            },
+            {
+              "name": "IsSeparated",
+              "type": "boolean",
+              "value": false
+            }
+          ],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "PlatformerObject",
+              "type": "PlatformBehavior::PlatformerObjectBehavior",
+              "acceleration": 1248,
+              "canGoDownFromJumpthru": true,
+              "canGrabPlatforms": false,
+              "canGrabWithoutMoving": false,
+              "deceleration": 1248,
+              "gravity": 1200,
+              "ignoreDefaultControls": false,
+              "jumpSpeed": 580,
+              "jumpSustainTime": 0.15,
+              "ladderClimbingSpeed": 150,
+              "maxFallingSpeed": 900,
+              "maxSpeed": 240,
+              "roundCoordinates": false,
+              "slopeMaxAngle": 60,
+              "useLegacyTrajectory": false,
+              "xGrabTolerance": 10,
+              "yGrabOffset": 0
+            }
+          ],
+          "animations": [
+            {
+              "name": "Default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.1,
+                  "sprites": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "height": 32,
+          "name": "Platform",
+          "texture": "",
+          "type": "TiledSpriteObject::TiledSprite",
+          "width": 32,
+          "variables": [],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "Platform",
+              "type": "PlatformBehavior::PlatformBehavior",
+              "canBeGrabbed": false,
+              "platformType": "Normal",
+              "yGrabOffset": 0
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "height": 32,
+          "name": "SpectralBarrier",
+          "texture": "",
+          "type": "TiledSpriteObject::TiledSprite",
+          "width": 32,
+          "variables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "red"
+            }
+          ],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "Platform",
+              "type": "PlatformBehavior::PlatformBehavior",
+              "canBeGrabbed": false,
+              "platformType": "Normal",
+              "yGrabOffset": 0
+            }
+          ]
+        },
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "Portal",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "red"
+            }
+          ],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "Default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.1,
+                  "sprites": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "CollectibleBall",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "white"
+            },
+            {
+              "name": "BallId",
+              "type": "string",
+              "value": ""
+            }
+          ],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "Default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.1,
+                  "sprites": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "ExitBeacon",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [
+            {
+              "name": "Active",
+              "type": "boolean",
+              "value": false
+            }
+          ],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "Default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.1,
+                  "sprites": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "objectsFolderStructure": {
+        "folderName": "__ROOT",
+        "children": [
+          {
+            "objectName": "Player"
+          },
+          {
+            "objectName": "Platform"
+          },
+          {
+            "objectName": "SpectralBarrier"
+          },
+          {
+            "objectName": "Portal"
+          },
+          {
+            "objectName": "CollectibleBall"
+          },
+          {
+            "objectName": "ExitBeacon"
+          }
+        ]
+      },
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "SceneJustBegins"
+              },
+              "parameters": [
+                ""
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "BallsCollected",
+                "=",
+                "0"
+              ],
+              "subInstructions": []
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "Player",
+                "CollectibleBall",
+                "",
+                "",
+                ""
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "Delete"
+              },
+              "parameters": [
+                "CollectibleBall"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "BallsCollected",
+                "+",
+                "1"
+              ],
+              "subInstructions": []
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "Player",
+                "Portal",
+                "",
+                "",
+                ""
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarObjetTxt"
+              },
+              "parameters": [
+                "Player",
+                "Color",
+                "=",
+                "Portal.VariableString(Color)"
+              ],
+              "subInstructions": []
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "Player",
+                "ExitBeacon",
+                "",
+                "",
+                ""
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "VarScene"
+              },
+              "parameters": [
+                "BallsCollected",
+                ">=",
+                "3"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "PushScene"
+              },
+              "parameters": [
+                "\"Stage_04\""
+              ],
+              "subInstructions": []
+            }
+          ]
+        }
+      ],
+      "layers": [
+        {
+          "ambientLightColorB": 0,
+          "ambientLightColorG": 0,
+          "ambientLightColorR": 0,
+          "camera3DFarPlaneDistance": 10000,
+          "camera3DFieldOfView": 45,
+          "camera3DNearPlaneDistance": 0.1,
+          "cameraType": "",
+          "followBaseLayerCamera": false,
+          "isLightingLayer": false,
+          "isLocked": false,
+          "name": "",
+          "renderingType": "",
+          "visibility": true,
+          "cameras": [
+            {
+              "defaultSize": true,
+              "defaultViewport": true,
+              "height": 0,
+              "viewportBottom": 1,
+              "viewportLeft": 0,
+              "viewportRight": 1,
+              "viewportTop": 0,
+              "width": 0
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "behaviorsSharedData": [
+        {
+          "name": "Platform",
+          "type": "PlatformBehavior::PlatformBehavior"
+        },
+        {
+          "name": "PlatformerObject",
+          "type": "PlatformBehavior::PlatformerObjectBehavior"
+        }
+      ]
+    },
+    {
+      "b": 7,
+      "disableInputWhenNotFocused": true,
+      "mangledName": "Stage_04",
+      "name": "Stage_04",
+      "r": 5,
+      "standardSortMethod": true,
+      "stopSoundsOnStartup": false,
+      "title": "STAGE 04: Chromatic Filters",
+      "v": 5,
+      "uiSettings": {
+        "grid": true,
+        "gridType": "rectangular",
+        "gridWidth": 16,
+        "gridHeight": 16,
+        "gridOffsetX": 0,
+        "gridOffsetY": 0,
+        "gridColor": 10401023,
+        "gridAlpha": 0.8,
+        "snap": true,
+        "zoomFactor": 1,
+        "windowMask": false
+      },
+      "objectsGroups": [],
+      "variables": [
+        {
+          "name": "BallsCollected",
+          "type": "number",
+          "value": 0
+        }
+      ],
+      "instances": [
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 44,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Player",
+          "persistentUuid": "ace8593c-d67b-4bed-bd75-2d7a30363006",
+          "width": 44,
+          "x": 78,
+          "y": 538,
+          "zOrder": 10,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "white"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 110,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "93d7d292-676c-496e-a53c-e93049a57d3c",
+          "width": 1280,
+          "x": 0,
+          "y": 610,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 75,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "87753662-41e4-4e35-b7d1-6b7ab3d1a847",
+          "width": 60,
+          "x": 320,
+          "y": 535,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 25,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "108fd4ae-8441-471c-9fce-62cec365ea72",
+          "width": 190,
+          "x": 410,
+          "y": 480,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 105,
+          "keepRatio": false,
+          "layer": "",
+          "name": "SpectralBarrier",
+          "persistentUuid": "2c96ff34-6aa2-4bf0-93d3-90783a96f621",
+          "width": 24,
+          "x": 410,
+          "y": 505,
+          "zOrder": 2,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "red"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 105,
+          "keepRatio": false,
+          "layer": "",
+          "name": "SpectralBarrier",
+          "persistentUuid": "4d992a9e-56c7-4510-a022-da99bc8a3aac",
+          "width": 24,
+          "x": 576,
+          "y": 505,
+          "zOrder": 2,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "red"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 25,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "af707932-b2c7-48ba-8f6a-4c648e72734e",
+          "width": 200,
+          "x": 650,
+          "y": 440,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 25,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "58032f13-015d-4d56-bacb-805b7f9cd07e",
+          "width": 190,
+          "x": 890,
+          "y": 440,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 25,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "187950a0-5dea-436d-9106-355dc212ad10",
+          "width": 190,
+          "x": 890,
+          "y": 310,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 105,
+          "keepRatio": false,
+          "layer": "",
+          "name": "SpectralBarrier",
+          "persistentUuid": "15416e28-2c04-4c34-bf8e-93d8d0c0779d",
+          "width": 24,
+          "x": 890,
+          "y": 335,
+          "zOrder": 2,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "green"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 105,
+          "keepRatio": false,
+          "layer": "",
+          "name": "SpectralBarrier",
+          "persistentUuid": "af18a2a1-e1eb-47db-ad70-4ffb4993ace7",
+          "width": 24,
+          "x": 1056,
+          "y": 335,
+          "zOrder": 2,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "green"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 112,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Portal",
+          "persistentUuid": "651ab3b2-9899-42a9-abe1-c0396465f96a",
+          "width": 72,
+          "x": 214,
+          "y": 494,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "red"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 112,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Portal",
+          "persistentUuid": "9146289d-978b-433a-938b-ae6e1c956c26",
+          "width": 72,
+          "x": 714,
+          "y": 324,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "green"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 46,
+          "keepRatio": false,
+          "layer": "",
+          "name": "CollectibleBall",
+          "persistentUuid": "1b7072f0-7430-4800-8ed4-aa86520169be",
+          "width": 46,
+          "x": 472,
+          "y": 532,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "red"
+            },
+            {
+              "name": "BallId",
+              "type": "string",
+              "value": "b4_red"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 46,
+          "keepRatio": false,
+          "layer": "",
+          "name": "CollectibleBall",
+          "persistentUuid": "396ef1d0-998b-492b-bc00-af650de1d8cd",
+          "width": 46,
+          "x": 952,
+          "y": 362,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "green"
+            },
+            {
+              "name": "BallId",
+              "type": "string",
+              "value": "b4_green"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 180,
+          "keepRatio": false,
+          "layer": "",
+          "name": "ExitBeacon",
+          "persistentUuid": "eb7a4d0f-5091-4677-8f6c-61f7f231f833",
+          "width": 70,
+          "x": 1160,
+          "y": 430,
+          "zOrder": 2,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Active",
+              "type": "boolean",
+              "value": false
+            }
+          ]
+        }
+      ],
+      "objects": [
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "Player",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "white"
+            },
+            {
+              "name": "IsSeparated",
+              "type": "boolean",
+              "value": false
+            }
+          ],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "PlatformerObject",
+              "type": "PlatformBehavior::PlatformerObjectBehavior",
+              "acceleration": 1248,
+              "canGoDownFromJumpthru": true,
+              "canGrabPlatforms": false,
+              "canGrabWithoutMoving": false,
+              "deceleration": 1248,
+              "gravity": 1200,
+              "ignoreDefaultControls": false,
+              "jumpSpeed": 580,
+              "jumpSustainTime": 0.15,
+              "ladderClimbingSpeed": 150,
+              "maxFallingSpeed": 900,
+              "maxSpeed": 240,
+              "roundCoordinates": false,
+              "slopeMaxAngle": 60,
+              "useLegacyTrajectory": false,
+              "xGrabTolerance": 10,
+              "yGrabOffset": 0
+            }
+          ],
+          "animations": [
+            {
+              "name": "Default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.1,
+                  "sprites": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "height": 32,
+          "name": "Platform",
+          "texture": "",
+          "type": "TiledSpriteObject::TiledSprite",
+          "width": 32,
+          "variables": [],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "Platform",
+              "type": "PlatformBehavior::PlatformBehavior",
+              "canBeGrabbed": false,
+              "platformType": "Normal",
+              "yGrabOffset": 0
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "height": 32,
+          "name": "SpectralBarrier",
+          "texture": "",
+          "type": "TiledSpriteObject::TiledSprite",
+          "width": 32,
+          "variables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "red"
+            }
+          ],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "Platform",
+              "type": "PlatformBehavior::PlatformBehavior",
+              "canBeGrabbed": false,
+              "platformType": "Normal",
+              "yGrabOffset": 0
+            }
+          ]
+        },
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "Portal",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "red"
+            }
+          ],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "Default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.1,
+                  "sprites": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "CollectibleBall",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "white"
+            },
+            {
+              "name": "BallId",
+              "type": "string",
+              "value": ""
+            }
+          ],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "Default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.1,
+                  "sprites": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "ExitBeacon",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [
+            {
+              "name": "Active",
+              "type": "boolean",
+              "value": false
+            }
+          ],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "Default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.1,
+                  "sprites": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "objectsFolderStructure": {
+        "folderName": "__ROOT",
+        "children": [
+          {
+            "objectName": "Player"
+          },
+          {
+            "objectName": "Platform"
+          },
+          {
+            "objectName": "SpectralBarrier"
+          },
+          {
+            "objectName": "Portal"
+          },
+          {
+            "objectName": "CollectibleBall"
+          },
+          {
+            "objectName": "ExitBeacon"
+          }
+        ]
+      },
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "SceneJustBegins"
+              },
+              "parameters": [
+                ""
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "BallsCollected",
+                "=",
+                "0"
+              ],
+              "subInstructions": []
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "Player",
+                "CollectibleBall",
+                "",
+                "",
+                ""
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "Delete"
+              },
+              "parameters": [
+                "CollectibleBall"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "BallsCollected",
+                "+",
+                "1"
+              ],
+              "subInstructions": []
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "Player",
+                "Portal",
+                "",
+                "",
+                ""
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarObjetTxt"
+              },
+              "parameters": [
+                "Player",
+                "Color",
+                "=",
+                "Portal.VariableString(Color)"
+              ],
+              "subInstructions": []
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "Player",
+                "ExitBeacon",
+                "",
+                "",
+                ""
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "VarScene"
+              },
+              "parameters": [
+                "BallsCollected",
+                ">=",
+                "2"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "PushScene"
+              },
+              "parameters": [
+                "\"Stage_05\""
+              ],
+              "subInstructions": []
+            }
+          ]
+        }
+      ],
+      "layers": [
+        {
+          "ambientLightColorB": 0,
+          "ambientLightColorG": 0,
+          "ambientLightColorR": 0,
+          "camera3DFarPlaneDistance": 10000,
+          "camera3DFieldOfView": 45,
+          "camera3DNearPlaneDistance": 0.1,
+          "cameraType": "",
+          "followBaseLayerCamera": false,
+          "isLightingLayer": false,
+          "isLocked": false,
+          "name": "",
+          "renderingType": "",
+          "visibility": true,
+          "cameras": [
+            {
+              "defaultSize": true,
+              "defaultViewport": true,
+              "height": 0,
+              "viewportBottom": 1,
+              "viewportLeft": 0,
+              "viewportRight": 1,
+              "viewportTop": 0,
+              "width": 0
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "behaviorsSharedData": [
+        {
+          "name": "Platform",
+          "type": "PlatformBehavior::PlatformBehavior"
+        },
+        {
+          "name": "PlatformerObject",
+          "type": "PlatformBehavior::PlatformerObjectBehavior"
+        }
+      ]
+    },
+    {
+      "b": 7,
+      "disableInputWhenNotFocused": true,
+      "mangledName": "Stage_05",
+      "name": "Stage_05",
+      "r": 5,
+      "standardSortMethod": true,
+      "stopSoundsOnStartup": false,
+      "title": "STAGE 05: Prismatic Velocity",
+      "v": 5,
+      "uiSettings": {
+        "grid": true,
+        "gridType": "rectangular",
+        "gridWidth": 16,
+        "gridHeight": 16,
+        "gridOffsetX": 0,
+        "gridOffsetY": 0,
+        "gridColor": 10401023,
+        "gridAlpha": 0.8,
+        "snap": true,
+        "zoomFactor": 1,
+        "windowMask": false
+      },
+      "objectsGroups": [],
+      "variables": [
+        {
+          "name": "BallsCollected",
+          "type": "number",
+          "value": 0
+        }
+      ],
+      "instances": [
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 44,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Player",
+          "persistentUuid": "4e38c555-1251-4460-91ce-374084a26326",
+          "width": 44,
+          "x": 68,
+          "y": 538,
+          "zOrder": 10,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "white"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 110,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "d669a47a-acd7-4939-92fb-4c2930e8d6b7",
+          "width": 1280,
+          "x": 0,
+          "y": 610,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 35,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "df0e0ec5-e697-4959-bb5f-40b26b8cf83e",
+          "width": 180,
+          "x": 280,
+          "y": 510,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 35,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "eb15a8bb-0f17-4052-a917-5d0597c56928",
+          "width": 180,
+          "x": 540,
+          "y": 410,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 35,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "7a5a2f7a-acd3-47b6-96b9-44aed7e19d88",
+          "width": 220,
+          "x": 800,
+          "y": 310,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 300,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "e6e07abf-62de-4172-9712-fd7cdd69b164",
+          "width": 26,
+          "x": 740,
+          "y": 310,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 112,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Portal",
+          "persistentUuid": "d05da4c1-11a3-434d-b61f-bdf9083d0307",
+          "width": 72,
+          "x": 334,
+          "y": 394,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "green"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 112,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Portal",
+          "persistentUuid": "9d72432b-1df8-4383-a1cc-e36eaf804dd3",
+          "width": 72,
+          "x": 594,
+          "y": 294,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "blue"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 112,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Portal",
+          "persistentUuid": "9d6642b2-b378-4332-920a-b1e215c288cc",
+          "width": 72,
+          "x": 154,
+          "y": 494,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "red"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 46,
+          "keepRatio": false,
+          "layer": "",
+          "name": "CollectibleBall",
+          "persistentUuid": "1cc23813-4925-4d40-8142-75fe082be2a8",
+          "width": 46,
+          "x": 357,
+          "y": 527,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "red"
+            },
+            {
+              "name": "BallId",
+              "type": "string",
+              "value": "b5_red"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 46,
+          "keepRatio": false,
+          "layer": "",
+          "name": "CollectibleBall",
+          "persistentUuid": "b80be537-dd34-4b58-b2ad-1d035fb941de",
+          "width": 46,
+          "x": 607,
+          "y": 247,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "green"
+            },
+            {
+              "name": "BallId",
+              "type": "string",
+              "value": "b5_green"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 46,
+          "keepRatio": false,
+          "layer": "",
+          "name": "CollectibleBall",
+          "persistentUuid": "6e4e2ebe-4ce6-4655-aefa-af1d1f185cde",
+          "width": 46,
+          "x": 887,
+          "y": 227,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "blue"
+            },
+            {
+              "name": "BallId",
+              "type": "string",
+              "value": "b5_blue"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 180,
+          "keepRatio": false,
+          "layer": "",
+          "name": "ExitBeacon",
+          "persistentUuid": "6b17a0fd-60af-4f30-88f1-b26c2ade159b",
+          "width": 70,
+          "x": 1140,
+          "y": 430,
+          "zOrder": 2,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Active",
+              "type": "boolean",
+              "value": false
+            }
+          ]
+        }
+      ],
+      "objects": [
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "Player",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "white"
+            },
+            {
+              "name": "IsSeparated",
+              "type": "boolean",
+              "value": false
+            }
+          ],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "PlatformerObject",
+              "type": "PlatformBehavior::PlatformerObjectBehavior",
+              "acceleration": 1248,
+              "canGoDownFromJumpthru": true,
+              "canGrabPlatforms": false,
+              "canGrabWithoutMoving": false,
+              "deceleration": 1248,
+              "gravity": 1200,
+              "ignoreDefaultControls": false,
+              "jumpSpeed": 580,
+              "jumpSustainTime": 0.15,
+              "ladderClimbingSpeed": 150,
+              "maxFallingSpeed": 900,
+              "maxSpeed": 240,
+              "roundCoordinates": false,
+              "slopeMaxAngle": 60,
+              "useLegacyTrajectory": false,
+              "xGrabTolerance": 10,
+              "yGrabOffset": 0
+            }
+          ],
+          "animations": [
+            {
+              "name": "Default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.1,
+                  "sprites": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "height": 32,
+          "name": "Platform",
+          "texture": "",
+          "type": "TiledSpriteObject::TiledSprite",
+          "width": 32,
+          "variables": [],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "Platform",
+              "type": "PlatformBehavior::PlatformBehavior",
+              "canBeGrabbed": false,
+              "platformType": "Normal",
+              "yGrabOffset": 0
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "height": 32,
+          "name": "SpectralBarrier",
+          "texture": "",
+          "type": "TiledSpriteObject::TiledSprite",
+          "width": 32,
+          "variables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "red"
+            }
+          ],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "Platform",
+              "type": "PlatformBehavior::PlatformBehavior",
+              "canBeGrabbed": false,
+              "platformType": "Normal",
+              "yGrabOffset": 0
+            }
+          ]
+        },
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "Portal",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "red"
+            }
+          ],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "Default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.1,
+                  "sprites": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "CollectibleBall",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "white"
+            },
+            {
+              "name": "BallId",
+              "type": "string",
+              "value": ""
+            }
+          ],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "Default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.1,
+                  "sprites": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "ExitBeacon",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [
+            {
+              "name": "Active",
+              "type": "boolean",
+              "value": false
+            }
+          ],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "Default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.1,
+                  "sprites": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "objectsFolderStructure": {
+        "folderName": "__ROOT",
+        "children": [
+          {
+            "objectName": "Player"
+          },
+          {
+            "objectName": "Platform"
+          },
+          {
+            "objectName": "SpectralBarrier"
+          },
+          {
+            "objectName": "Portal"
+          },
+          {
+            "objectName": "CollectibleBall"
+          },
+          {
+            "objectName": "ExitBeacon"
+          }
+        ]
+      },
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "SceneJustBegins"
+              },
+              "parameters": [
+                ""
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "BallsCollected",
+                "=",
+                "0"
+              ],
+              "subInstructions": []
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "Player",
+                "CollectibleBall",
+                "",
+                "",
+                ""
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "Delete"
+              },
+              "parameters": [
+                "CollectibleBall"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "BallsCollected",
+                "+",
+                "1"
+              ],
+              "subInstructions": []
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "Player",
+                "Portal",
+                "",
+                "",
+                ""
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarObjetTxt"
+              },
+              "parameters": [
+                "Player",
+                "Color",
+                "=",
+                "Portal.VariableString(Color)"
+              ],
+              "subInstructions": []
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "Player",
+                "ExitBeacon",
+                "",
+                "",
+                ""
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "VarScene"
+              },
+              "parameters": [
+                "BallsCollected",
+                ">=",
+                "3"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "PushScene"
+              },
+              "parameters": [
+                "\"Stage_06\""
+              ],
+              "subInstructions": []
+            }
+          ]
+        }
+      ],
+      "layers": [
+        {
+          "ambientLightColorB": 0,
+          "ambientLightColorG": 0,
+          "ambientLightColorR": 0,
+          "camera3DFarPlaneDistance": 10000,
+          "camera3DFieldOfView": 45,
+          "camera3DNearPlaneDistance": 0.1,
+          "cameraType": "",
+          "followBaseLayerCamera": false,
+          "isLightingLayer": false,
+          "isLocked": false,
+          "name": "",
+          "renderingType": "",
+          "visibility": true,
+          "cameras": [
+            {
+              "defaultSize": true,
+              "defaultViewport": true,
+              "height": 0,
+              "viewportBottom": 1,
+              "viewportLeft": 0,
+              "viewportRight": 1,
+              "viewportTop": 0,
+              "width": 0
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "behaviorsSharedData": [
+        {
+          "name": "Platform",
+          "type": "PlatformBehavior::PlatformBehavior"
+        },
+        {
+          "name": "PlatformerObject",
+          "type": "PlatformBehavior::PlatformerObjectBehavior"
+        }
+      ]
+    },
+    {
+      "b": 7,
+      "disableInputWhenNotFocused": true,
+      "mangledName": "Stage_06",
+      "name": "Stage_06",
+      "r": 5,
+      "standardSortMethod": true,
+      "stopSoundsOnStartup": false,
+      "title": "STAGE 06: Recombination",
+      "v": 5,
+      "uiSettings": {
+        "grid": true,
+        "gridType": "rectangular",
+        "gridWidth": 16,
+        "gridHeight": 16,
+        "gridOffsetX": 0,
+        "gridOffsetY": 0,
+        "gridColor": 10401023,
+        "gridAlpha": 0.8,
+        "snap": true,
+        "zoomFactor": 1,
+        "windowMask": false
+      },
+      "objectsGroups": [],
+      "variables": [
+        {
+          "name": "BallsCollected",
+          "type": "number",
+          "value": 0
+        }
+      ],
+      "instances": [
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 44,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Player",
+          "persistentUuid": "f315afb7-16b2-4f47-ba6c-a3fe092fc4dd",
+          "width": 44,
+          "x": 78,
+          "y": 538,
+          "zOrder": 10,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "white"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 110,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "b9a467aa-df9e-45c2-9191-354bb23a4e46",
+          "width": 1280,
+          "x": 0,
+          "y": 610,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 35,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "70dfbb1b-0a8e-435e-8938-52e07723f008",
+          "width": 160,
+          "x": 260,
+          "y": 510,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 35,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "825ced26-dae4-49c6-ae4e-964186692f5f",
+          "width": 160,
+          "x": 500,
+          "y": 420,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 35,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "16731489-fed1-421b-9b52-d7ad062ec631",
+          "width": 160,
+          "x": 740,
+          "y": 330,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 40,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "d6b85f3e-152d-4ba7-8e9b-7f116b3d94a7",
+          "width": 300,
+          "x": 980,
+          "y": 360,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 390,
+          "keepRatio": false,
+          "layer": "",
+          "name": "SpectralBarrier",
+          "persistentUuid": "fc51cc85-81ac-48aa-830f-6a86fe83d0f9",
+          "width": 26,
+          "x": 960,
+          "y": 220,
+          "zOrder": 2,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "blue"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 112,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Portal",
+          "persistentUuid": "9f6464ec-fdd4-4168-830d-9eac42f81eaf",
+          "width": 72,
+          "x": 174,
+          "y": 494,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "red"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 112,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Portal",
+          "persistentUuid": "e6f3c835-5014-4b75-908f-5464a05dd0b3",
+          "width": 72,
+          "x": 304,
+          "y": 394,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "green"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 112,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Portal",
+          "persistentUuid": "db4565cb-d93e-44e8-9836-34221d3024b2",
+          "width": 72,
+          "x": 544,
+          "y": 304,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "blue"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 46,
+          "keepRatio": false,
+          "layer": "",
+          "name": "CollectibleBall",
+          "persistentUuid": "065f16ff-ca03-4584-9b70-a812c4599e53",
+          "width": 46,
+          "x": 397,
+          "y": 527,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "red"
+            },
+            {
+              "name": "BallId",
+              "type": "string",
+              "value": "b6_red"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 46,
+          "keepRatio": false,
+          "layer": "",
+          "name": "CollectibleBall",
+          "persistentUuid": "e598656f-14ad-43e5-8251-af3d2fe73d0a",
+          "width": 46,
+          "x": 647,
+          "y": 357,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "green"
+            },
+            {
+              "name": "BallId",
+              "type": "string",
+              "value": "b6_green"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 46,
+          "keepRatio": false,
+          "layer": "",
+          "name": "CollectibleBall",
+          "persistentUuid": "a2a37031-6d8f-49f8-acd4-9b9284191817",
+          "width": 46,
+          "x": 1097,
+          "y": 277,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "blue"
+            },
+            {
+              "name": "BallId",
+              "type": "string",
+              "value": "b6_blue"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 180,
+          "keepRatio": false,
+          "layer": "",
+          "name": "ExitBeacon",
+          "persistentUuid": "53e966fb-2859-424f-afd5-1af78ce2970a",
+          "width": 70,
+          "x": 1180,
+          "y": 180,
+          "zOrder": 2,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Active",
+              "type": "boolean",
+              "value": false
+            }
+          ]
+        }
+      ],
+      "objects": [
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "Player",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "white"
+            },
+            {
+              "name": "IsSeparated",
+              "type": "boolean",
+              "value": false
+            }
+          ],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "PlatformerObject",
+              "type": "PlatformBehavior::PlatformerObjectBehavior",
+              "acceleration": 1248,
+              "canGoDownFromJumpthru": true,
+              "canGrabPlatforms": false,
+              "canGrabWithoutMoving": false,
+              "deceleration": 1248,
+              "gravity": 1200,
+              "ignoreDefaultControls": false,
+              "jumpSpeed": 580,
+              "jumpSustainTime": 0.15,
+              "ladderClimbingSpeed": 150,
+              "maxFallingSpeed": 900,
+              "maxSpeed": 240,
+              "roundCoordinates": false,
+              "slopeMaxAngle": 60,
+              "useLegacyTrajectory": false,
+              "xGrabTolerance": 10,
+              "yGrabOffset": 0
+            }
+          ],
+          "animations": [
+            {
+              "name": "Default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.1,
+                  "sprites": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "height": 32,
+          "name": "Platform",
+          "texture": "",
+          "type": "TiledSpriteObject::TiledSprite",
+          "width": 32,
+          "variables": [],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "Platform",
+              "type": "PlatformBehavior::PlatformBehavior",
+              "canBeGrabbed": false,
+              "platformType": "Normal",
+              "yGrabOffset": 0
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "height": 32,
+          "name": "SpectralBarrier",
+          "texture": "",
+          "type": "TiledSpriteObject::TiledSprite",
+          "width": 32,
+          "variables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "red"
+            }
+          ],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "Platform",
+              "type": "PlatformBehavior::PlatformBehavior",
+              "canBeGrabbed": false,
+              "platformType": "Normal",
+              "yGrabOffset": 0
+            }
+          ]
+        },
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "Portal",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "red"
+            }
+          ],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "Default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.1,
+                  "sprites": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "CollectibleBall",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "white"
+            },
+            {
+              "name": "BallId",
+              "type": "string",
+              "value": ""
+            }
+          ],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "Default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.1,
+                  "sprites": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "ExitBeacon",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [
+            {
+              "name": "Active",
+              "type": "boolean",
+              "value": false
+            }
+          ],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "Default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.1,
+                  "sprites": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "objectsFolderStructure": {
+        "folderName": "__ROOT",
+        "children": [
+          {
+            "objectName": "Player"
+          },
+          {
+            "objectName": "Platform"
+          },
+          {
+            "objectName": "SpectralBarrier"
+          },
+          {
+            "objectName": "Portal"
+          },
+          {
+            "objectName": "CollectibleBall"
+          },
+          {
+            "objectName": "ExitBeacon"
+          }
+        ]
+      },
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "SceneJustBegins"
+              },
+              "parameters": [
+                ""
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "BallsCollected",
+                "=",
+                "0"
+              ],
+              "subInstructions": []
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "Player",
+                "CollectibleBall",
+                "",
+                "",
+                ""
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "Delete"
+              },
+              "parameters": [
+                "CollectibleBall"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "BallsCollected",
+                "+",
+                "1"
+              ],
+              "subInstructions": []
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "Player",
+                "Portal",
+                "",
+                "",
+                ""
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarObjetTxt"
+              },
+              "parameters": [
+                "Player",
+                "Color",
+                "=",
+                "Portal.VariableString(Color)"
+              ],
+              "subInstructions": []
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "Player",
+                "ExitBeacon",
+                "",
+                "",
+                ""
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "VarScene"
+              },
+              "parameters": [
+                "BallsCollected",
+                ">=",
+                "3"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "PushScene"
+              },
+              "parameters": [
+                "\"Stage_07\""
+              ],
+              "subInstructions": []
+            }
+          ]
+        }
+      ],
+      "layers": [
+        {
+          "ambientLightColorB": 0,
+          "ambientLightColorG": 0,
+          "ambientLightColorR": 0,
+          "camera3DFarPlaneDistance": 10000,
+          "camera3DFieldOfView": 45,
+          "camera3DNearPlaneDistance": 0.1,
+          "cameraType": "",
+          "followBaseLayerCamera": false,
+          "isLightingLayer": false,
+          "isLocked": false,
+          "name": "",
+          "renderingType": "",
+          "visibility": true,
+          "cameras": [
+            {
+              "defaultSize": true,
+              "defaultViewport": true,
+              "height": 0,
+              "viewportBottom": 1,
+              "viewportLeft": 0,
+              "viewportRight": 1,
+              "viewportTop": 0,
+              "width": 0
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "behaviorsSharedData": [
+        {
+          "name": "Platform",
+          "type": "PlatformBehavior::PlatformBehavior"
+        },
+        {
+          "name": "PlatformerObject",
+          "type": "PlatformBehavior::PlatformerObjectBehavior"
+        }
+      ]
+    },
+    {
+      "b": 7,
+      "disableInputWhenNotFocused": true,
+      "mangledName": "Stage_07",
+      "name": "Stage_07",
+      "r": 5,
+      "standardSortMethod": true,
+      "stopSoundsOnStartup": false,
+      "title": "LEVEL 7: Chromatic Fusion",
+      "v": 5,
+      "uiSettings": {
+        "grid": true,
+        "gridType": "rectangular",
+        "gridWidth": 16,
+        "gridHeight": 16,
+        "gridOffsetX": 0,
+        "gridOffsetY": 0,
+        "gridColor": 10401023,
+        "gridAlpha": 0.8,
+        "snap": true,
+        "zoomFactor": 1,
+        "windowMask": false
+      },
+      "objectsGroups": [],
+      "variables": [
+        {
+          "name": "BallsCollected",
+          "type": "number",
+          "value": 0
+        }
+      ],
+      "instances": [
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 44,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Player",
+          "persistentUuid": "722cc5a6-a2cb-4ffa-962f-9354db97226d",
+          "width": 44,
+          "x": 98,
+          "y": 498,
+          "zOrder": 10,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "white"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 140,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "cb792857-c73c-4ae1-a4e6-1f841bfcfc7b",
+          "width": 350,
+          "x": 0,
+          "y": 580,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 145,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "c3038b3d-1375-4db3-bca0-f1fcf8305c68",
+          "width": 110,
+          "x": 410,
+          "y": 495,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 145,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "fcc46cf8-e482-4643-bdc2-1fc36e1ab5f0",
+          "width": 110,
+          "x": 580,
+          "y": 495,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 145,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "7805a80f-8f4f-4cf1-92a3-befca46d3c1d",
+          "width": 110,
+          "x": 750,
+          "y": 495,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 120,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Platform",
+          "persistentUuid": "f60c680b-0b73-4cdd-b7b5-c4f4fab8b671",
+          "width": 420,
+          "x": 860,
+          "y": 600,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 112,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Portal",
+          "persistentUuid": "0165505e-c2c4-4a53-9c16-920193e94fc1",
+          "width": 72,
+          "x": 194,
+          "y": 464,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "red"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 108,
+          "keepRatio": false,
+          "layer": "",
+          "name": "Portal",
+          "persistentUuid": "5e312593-bd40-41c0-8b80-ea3fc9f98c20",
+          "width": 68,
+          "x": 601,
+          "y": 376,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "blue"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 40,
+          "keepRatio": false,
+          "layer": "",
+          "name": "CollectibleBall",
+          "persistentUuid": "c63e15aa-e9d8-46cb-9d0a-d0c771586c0c",
+          "width": 40,
+          "x": 445,
+          "y": 405,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "yellow"
+            },
+            {
+              "name": "BallId",
+              "type": "string",
+              "value": "b7_yellow"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 180,
+          "keepRatio": false,
+          "layer": "",
+          "name": "ExitBeacon",
+          "persistentUuid": "bf84b63e-af2d-4113-8fde-395c86787d39",
+          "width": 70,
+          "x": 1140,
+          "y": 420,
+          "zOrder": 2,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "name": "Active",
+              "type": "boolean",
+              "value": false
+            }
+          ]
+        }
+      ],
+      "objects": [
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "Player",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "white"
+            },
+            {
+              "name": "IsSeparated",
+              "type": "boolean",
+              "value": false
+            }
+          ],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "PlatformerObject",
+              "type": "PlatformBehavior::PlatformerObjectBehavior",
+              "acceleration": 1248,
+              "canGoDownFromJumpthru": true,
+              "canGrabPlatforms": false,
+              "canGrabWithoutMoving": false,
+              "deceleration": 1248,
+              "gravity": 1200,
+              "ignoreDefaultControls": false,
+              "jumpSpeed": 580,
+              "jumpSustainTime": 0.15,
+              "ladderClimbingSpeed": 150,
+              "maxFallingSpeed": 900,
+              "maxSpeed": 240,
+              "roundCoordinates": false,
+              "slopeMaxAngle": 60,
+              "useLegacyTrajectory": false,
+              "xGrabTolerance": 10,
+              "yGrabOffset": 0
+            }
+          ],
+          "animations": [
+            {
+              "name": "Default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.1,
+                  "sprites": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "height": 32,
+          "name": "Platform",
+          "texture": "",
+          "type": "TiledSpriteObject::TiledSprite",
+          "width": 32,
+          "variables": [],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "Platform",
+              "type": "PlatformBehavior::PlatformBehavior",
+              "canBeGrabbed": false,
+              "platformType": "Normal",
+              "yGrabOffset": 0
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "height": 32,
+          "name": "SpectralBarrier",
+          "texture": "",
+          "type": "TiledSpriteObject::TiledSprite",
+          "width": 32,
+          "variables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "red"
+            }
+          ],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "Platform",
+              "type": "PlatformBehavior::PlatformBehavior",
+              "canBeGrabbed": false,
+              "platformType": "Normal",
+              "yGrabOffset": 0
+            }
+          ]
+        },
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "Portal",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "red"
+            }
+          ],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "Default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.1,
+                  "sprites": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "CollectibleBall",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [
+            {
+              "name": "Color",
+              "type": "string",
+              "value": "white"
+            },
+            {
+              "name": "BallId",
+              "type": "string",
+              "value": ""
+            }
+          ],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "Default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.1,
+                  "sprites": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "ExitBeacon",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [
+            {
+              "name": "Active",
+              "type": "boolean",
+              "value": false
+            }
+          ],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "Default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.1,
+                  "sprites": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "objectsFolderStructure": {
+        "folderName": "__ROOT",
+        "children": [
+          {
+            "objectName": "Player"
+          },
+          {
+            "objectName": "Platform"
+          },
+          {
+            "objectName": "SpectralBarrier"
+          },
+          {
+            "objectName": "Portal"
+          },
+          {
+            "objectName": "CollectibleBall"
+          },
+          {
+            "objectName": "ExitBeacon"
+          }
+        ]
+      },
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "SceneJustBegins"
+              },
+              "parameters": [
+                ""
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "BallsCollected",
+                "=",
+                "0"
+              ],
+              "subInstructions": []
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "Player",
+                "CollectibleBall",
+                "",
+                "",
+                ""
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "Delete"
+              },
+              "parameters": [
+                "CollectibleBall"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "BallsCollected",
+                "+",
+                "1"
+              ],
+              "subInstructions": []
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "Player",
+                "Portal",
+                "",
+                "",
+                ""
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarObjetTxt"
+              },
+              "parameters": [
+                "Player",
+                "Color",
+                "=",
+                "Portal.VariableString(Color)"
+              ],
+              "subInstructions": []
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "Player",
+                "ExitBeacon",
+                "",
+                "",
+                ""
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "VarScene"
+              },
+              "parameters": [
+                "BallsCollected",
+                ">=",
+                "1"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "PushScene"
+              },
+              "parameters": [
+                "\"Stage_01\""
+              ],
+              "subInstructions": []
+            }
+          ]
+        }
+      ],
+      "layers": [
+        {
+          "ambientLightColorB": 0,
+          "ambientLightColorG": 0,
+          "ambientLightColorR": 0,
+          "camera3DFarPlaneDistance": 10000,
+          "camera3DFieldOfView": 45,
+          "camera3DNearPlaneDistance": 0.1,
+          "cameraType": "",
+          "followBaseLayerCamera": false,
+          "isLightingLayer": false,
+          "isLocked": false,
+          "name": "",
+          "renderingType": "",
+          "visibility": true,
+          "cameras": [
+            {
+              "defaultSize": true,
+              "defaultViewport": true,
+              "height": 0,
+              "viewportBottom": 1,
+              "viewportLeft": 0,
+              "viewportRight": 1,
+              "viewportTop": 0,
+              "width": 0
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "behaviorsSharedData": [
+        {
+          "name": "Platform",
+          "type": "PlatformBehavior::PlatformBehavior"
+        },
+        {
+          "name": "PlatformerObject",
+          "type": "PlatformBehavior::PlatformerObjectBehavior"
+        }
+      ]
+    }
+  ],
+  "externalEvents": [],
+  "eventsFunctionsExtensions": [],
+  "externalLayouts": [],
+  "externalSourceFiles": []
+}

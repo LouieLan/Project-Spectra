@@ -1,0 +1,8 @@
+{
+  "name": "Spectra 2",
+  "description": "A minimalist futuristic neon puzzle platformer game where you divide the light through spectral portals.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
