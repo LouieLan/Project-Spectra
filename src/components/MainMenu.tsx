@@ -1,23 +1,38 @@
 import React, { useState, useEffect } from 'react';
 import { sound } from '../audio';
+import { LEVELS } from '../levels';
 
 interface MainMenuProps {
   onStartGame: () => void;
   onOpenLevelSelect: () => void;
   onOpenSettings: () => void;
   onOpenRGBDiagram: () => void;
+  completedLevels?: number[];
 }
 
 export const MainMenu: React.FC<MainMenuProps> = ({
   onStartGame,
   onOpenLevelSelect,
   onOpenSettings,
+  completedLevels = [],
 }) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [showQuitConfirm, setShowQuitConfirm] = useState(false);
 
+  const completedCount = completedLevels.filter((id) => id >= 1 && id <= LEVELS.length).length;
+  const nextTargetLevel = LEVELS.find(
+    (lvl) => (lvl.id === 1 || completedLevels.includes(lvl.id - 1)) && !completedLevels.includes(lvl.id)
+  );
+
+  const playLabel =
+    completedCount === 0
+      ? 'PLAY'
+      : completedCount >= LEVELS.length
+      ? 'PLAY AGAIN'
+      : `CONTINUE (LVL ${nextTargetLevel?.id || 1})`;
+
   const menuItems = [
-    { label: 'PLAY', action: onStartGame },
+    { label: playLabel, action: onStartGame },
     { label: 'LEVEL SELECT', action: onOpenLevelSelect },
     { label: 'SETTINGS', action: onOpenSettings },
     {
@@ -120,10 +135,17 @@ export const MainMenu: React.FC<MainMenuProps> = ({
           SPECTRA
         </h1>
 
-        {/* Subtitle */}
-        <p className="font-mono text-[10px] sm:text-xs md:text-sm tracking-[0.26em] text-[#8C8C96] uppercase mb-5 sm:mb-7">
-          A STUDY IN CHROMATIC DIVISION AND RETURN
-        </p>
+        {/* Subtitle & Progress */}
+        <div className="flex flex-wrap items-center gap-3 mb-5 sm:mb-7">
+          <p className="font-mono text-[10px] sm:text-xs md:text-sm tracking-[0.26em] text-[#8C8C96] uppercase">
+            A STUDY IN CHROMATIC DIVISION AND RETURN
+          </p>
+          {completedCount > 0 && (
+            <span className="font-mono text-[10px] tracking-widest px-2.5 py-0.5 rounded-full bg-[#48D1CC]/15 border border-[#48D1CC]/30 text-[#48D1CC] uppercase">
+              PROGRES: {completedCount}/{LEVELS.length} SELESAI
+            </span>
+          )}
+        </div>
 
         {/* Hairline Divider */}
         <div className="w-full max-w-[420px] h-[1px] bg-white/20 mb-8 sm:mb-10" />

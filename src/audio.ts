@@ -264,6 +264,32 @@ class SoundSystem {
     }
   }
 
+  public playLocked() {
+    try {
+      this.initContext();
+      if (!this.ctx || !this.sfxGain) return;
+
+      const now = this.ctx.currentTime;
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(140, now);
+      osc.frequency.setValueAtTime(105, now + 0.07);
+
+      gain.gain.setValueAtTime(0.09, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
+
+      osc.connect(gain);
+      gain.connect(this.sfxGain);
+
+      osc.start(now);
+      osc.stop(now + 0.2);
+    } catch {
+      // Audio fallback
+    }
+  }
+
   public playCollectBall(index: number = 0) {
     try {
       this.initContext();

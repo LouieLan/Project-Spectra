@@ -37,6 +37,12 @@ export const StageClearModal: React.FC<StageClearModalProps> = ({
           {stageTitle}
         </h2>
 
+        {!isLastStage && (
+          <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-[#2ECC71]/15 border border-[#2ECC71]/30 text-[#2ECC71] text-[11px] font-mono tracking-wider mb-2">
+            <span>✓ LEVEL BERIKUTNYA TERBUKA</span>
+          </div>
+        )}
+
         <p className="text-xs font-mono text-white/60 uppercase mb-6 tracking-wide">
           Seluruh item berhasil dikumpulkan & Zona Finish tercapai!
         </p>

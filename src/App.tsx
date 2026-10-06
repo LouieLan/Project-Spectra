@@ -108,18 +108,36 @@ export default function App() {
     return () => window.removeEventListener('keydown', handleGlobalKeyDown);
   }, [screen, handleRestart, showRGBModal, showSettingsModal, isStageClear]);
 
-  // Start game from Menu
+  // Level unlock validator: Level 1 is always unlocked; higher levels require previous level completion
+  const isLevelUnlocked = useCallback((lvlId: number) => {
+    if (lvlId <= 1) return true;
+    return completedLevels.includes(lvlId - 1);
+  }, [completedLevels]);
+
+  // Start / Resume game from Menu
   const handleStartGame = () => {
     input.reset();
-    setCurrentLevelId(1);
+    // Start at next uncompleted unlocked level, or level 1 if all are completed
+    let targetLevel = 1;
+    for (let i = 1; i <= LEVELS.length; i++) {
+      if (!completedLevels.includes(i)) {
+        targetLevel = i;
+        break;
+      }
+    }
+    setCurrentLevelId(targetLevel);
     setActiveColor('white');
     setCollectedItemIds([]);
     setResetKey((k) => k + 1);
     setScreen('playing');
   };
 
-  // Level select start
+  // Level select start (guarded by level unlock progress check)
   const handleSelectLevel = (lvlId: number) => {
+    if (!isLevelUnlocked(lvlId)) {
+      sound.playLocked();
+      return;
+    }
     input.reset();
     setCurrentLevelId(lvlId);
     setActiveColor('white');
@@ -127,6 +145,17 @@ export default function App() {
     setResetKey((k) => k + 1);
     setScreen('playing');
   };
+
+  // Reset all game progress
+  const handleResetProgress = useCallback(() => {
+    try {
+      localStorage.removeItem('spectrum_clone_completed_levels');
+    } catch {
+      // ignore storage error
+    }
+    setCompletedLevels([]);
+    sound.playSelect();
+  }, []);
 
   // Color change callback from portal interaction
   const handleColorChanged = useCallback((newColor: SpectralColor) => {
@@ -206,6 +235,7 @@ export default function App() {
             sound.playSelect();
             setShowRGBModal(true);
           }}
+          completedLevels={completedLevels}
         />
       )}
 
@@ -214,6 +244,7 @@ export default function App() {
         <LevelSelect
           completedLevels={completedLevels}
           onSelectLevel={handleSelectLevel}
+          onResetProgress={handleResetProgress}
           onBack={() => {
             sound.playSelect();
             setScreen('menu');
