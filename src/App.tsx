@@ -107,6 +107,18 @@ export default function App() {
     setCharacters(chars);
   }, []);
 
+  // Sync InputManager between menu navigation mode and active gameplay mode for gamepad
+  useEffect(() => {
+    const isMenuMode =
+      screen !== 'playing' ||
+      !activePlayer ||
+      isPaused ||
+      isStageClear ||
+      showSettingsModal ||
+      showRGBModal;
+    input.setMenuMode(isMenuMode);
+  }, [screen, activePlayer, isPaused, isStageClear, showSettingsModal, showRGBModal]);
+
   // Global shortcut listeners ([R] to restart, [Esc] to pause)
   useEffect(() => {
     const handleGlobalKeyDown = (e: KeyboardEvent) => {

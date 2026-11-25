@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { GameSettings } from '../types';
 import { sound } from '../audio';
-import { X, Volume2, Sliders } from 'lucide-react';
+import { input, GamepadStatus } from '../input';
+import { X, Volume2, Sliders, Gamepad2 } from 'lucide-react';
 
 interface SettingsModalProps {
   settings: GameSettings;
@@ -14,6 +15,14 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
   onUpdateSettings,
   onClose,
 }) => {
+  const [gamepadStatus, setGamepadStatus] = useState<GamepadStatus>(() =>
+    input.getGamepadStatus()
+  );
+
+  useEffect(() => {
+    return input.subscribeGamepad(setGamepadStatus);
+  }, []);
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -99,6 +108,54 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                 onChange={(e) => handleSfxChange(parseFloat(e.target.value))}
                 className="w-full accent-[#E63946] h-1.5 bg-white/10 rounded-lg cursor-pointer"
               />
+            </div>
+          </div>
+
+          {/* Gamepad / Stik Section */}
+          <div className="pt-5 border-t border-white/10 space-y-3">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-2 text-xs font-mono tracking-widest text-[#48D1CC] uppercase">
+                <Gamepad2 size={15} />
+                <span>KONTROL STIK / GAMEPAD</span>
+              </div>
+              <span
+                className={`text-[11px] font-mono ${
+                  gamepadStatus.connected ? 'text-emerald-400' : 'text-white/40'
+                }`}
+              >
+                {gamepadStatus.connected ? 'Terhubung' : 'Tidak terdeteksi'}
+              </span>
+            </div>
+
+            {gamepadStatus.connected && gamepadStatus.name && (
+              <p className="text-xs font-mono text-white/80 truncate">
+                Perangkat: {gamepadStatus.name}
+              </p>
+            )}
+
+            {!gamepadStatus.connected && (
+              <p className="text-xs font-mono text-white/45 leading-relaxed">
+                Hubungkan stik USB atau Bluetooth lalu tekan tombol apa saja di stik untuk mengaktifkan.
+              </p>
+            )}
+
+            <div className="grid grid-cols-2 gap-y-1.5 gap-x-4 text-xs font-mono pt-1 text-white/75">
+              <div className="flex justify-between">
+                <span className="text-white/45">Gerak</span>
+                <span>Analog Kiri (←/→)</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-white/45">Lompat</span>
+                <span>Kotak (□) / X</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-white/45">Reset Level</span>
+                <span>R1 / RB</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-white/45">Jeda / Kembali</span>
+                <span>Start / B</span>
+              </div>
             </div>
           </div>
         </div>

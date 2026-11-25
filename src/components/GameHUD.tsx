@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { LevelData, SpectralColor, ActiveCharacter } from '../types';
-import { RotateCcw, Menu, Volume2, VolumeX } from 'lucide-react';
+import { input } from '../input';
+import { RotateCcw, Menu, Volume2, VolumeX, Gamepad2 } from 'lucide-react';
 
 interface GameHUDProps {
   level: LevelData;
@@ -23,6 +24,16 @@ export const GameHUD: React.FC<GameHUDProps> = ({
   isMuted,
   onToggleMute,
 }) => {
+  const [gamepadName, setGamepadName] = useState<string | null>(
+    () => input.getGamepadStatus().name
+  );
+
+  useEffect(() => {
+    return input.subscribeGamepad((status) => {
+      setGamepadName(status.connected ? status.name : null);
+    });
+  }, []);
+
   const collectedCount = collectedItemIds.length;
   const totalItems = level.items.length;
 
@@ -31,7 +42,7 @@ export const GameHUD: React.FC<GameHUDProps> = ({
       {/* Top Header Row */}
       <div className="flex items-center justify-between w-full">
         {/* Top Left: Clean Item Counter */}
-        <div className="pointer-events-auto">
+        <div className="pointer-events-auto flex items-center space-x-2">
           <div
             id="UI_TeksItem"
             className="flex items-center space-x-2.5 bg-[#070709]/85 backdrop-blur-md border border-white/10 px-3.5 py-1.5 rounded-lg shadow-md"
@@ -41,6 +52,16 @@ export const GameHUD: React.FC<GameHUDProps> = ({
               ITEM {collectedCount}/{totalItems}
             </span>
           </div>
+
+          {gamepadName && (
+            <div
+              className="hidden sm:flex items-center space-x-1.5 bg-[#070709]/85 backdrop-blur-md border border-white/10 px-2.5 py-1.5 rounded-lg text-[#48D1CC] font-mono text-xs shadow-md"
+              title={`Stik terhubung: ${gamepadName}`}
+            >
+              <Gamepad2 className="w-3.5 h-3.5" />
+              <span className="max-w-[110px] truncate">Stik Aktif</span>
+            </div>
+          )}
         </div>
 
         {/* Top Right: Level & Action Buttons */}

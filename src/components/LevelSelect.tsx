@@ -71,7 +71,7 @@ export const LevelSelect: React.FC<LevelSelectProps> = ({
     }
   }, [lockedNotice]);
 
-  // Keyboard navigation: Arrows, Enter, Escape
+  // Keyboard & Gamepad navigation: Arrows, Enter, Escape
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (showResetConfirm) {
@@ -83,14 +83,40 @@ export const LevelSelect: React.FC<LevelSelectProps> = ({
       }
 
       if (e.key === 'Escape') {
+        e.preventDefault();
         sound.playSelect();
         onBack();
+        return;
+      }
+
+      const activeEl = document.activeElement;
+      const focusedLevelId = LEVELS.find((l) => cardRefs.current.get(l.id) === activeEl)?.id;
+
+      if (
+        e.key === 'ArrowRight' ||
+        e.key === 'ArrowLeft' ||
+        e.key === 'ArrowDown' ||
+        e.key === 'ArrowUp'
+      ) {
+        e.preventDefault();
+        let nextId = focusedLevelId ?? nextActiveLevel.id;
+        if (focusedLevelId !== undefined) {
+          if (e.key === 'ArrowRight') nextId = Math.min(totalLevels, focusedLevelId + 1);
+          else if (e.key === 'ArrowLeft') nextId = Math.max(1, focusedLevelId - 1);
+          else if (e.key === 'ArrowDown') nextId = Math.min(totalLevels, focusedLevelId + 5);
+          else if (e.key === 'ArrowUp') nextId = Math.max(1, focusedLevelId - 5);
+        }
+        sound.playHover();
+        cardRefs.current.get(nextId)?.focus();
+      } else if (e.key === 'Enter' && focusedLevelId !== undefined) {
+        e.preventDefault();
+        handleSelect(focusedLevelId);
       }
     };
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [onBack, showResetConfirm]);
+  }, [onBack, showResetConfirm, nextActiveLevel.id, totalLevels, handleSelect]);
 
   return (
     <div className="relative w-full h-full min-h-screen bg-[#08090C] text-[#F3F4F6] flex flex-col justify-between p-6 sm:p-10 md:p-12 overflow-y-auto select-none font-sans">
