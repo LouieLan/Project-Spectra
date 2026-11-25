@@ -3,21 +3,24 @@ import { sound } from '../audio';
 import { LEVELS } from '../levels';
 
 interface MainMenuProps {
+  playerName: string;
   onStartGame: () => void;
   onOpenLevelSelect: () => void;
   onOpenSettings: () => void;
   onOpenRGBDiagram: () => void;
+  onSwitchPlayer: () => void;
   completedLevels?: number[];
 }
 
 export const MainMenu: React.FC<MainMenuProps> = ({
+  playerName,
   onStartGame,
   onOpenLevelSelect,
   onOpenSettings,
+  onSwitchPlayer,
   completedLevels = [],
 }) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [showQuitConfirm, setShowQuitConfirm] = useState(false);
 
   const completedCount = completedLevels.filter((id) => id >= 1 && id <= LEVELS.length).length;
   const nextTargetLevel = LEVELS.find(
@@ -35,25 +38,12 @@ export const MainMenu: React.FC<MainMenuProps> = ({
     { label: playLabel, action: onStartGame },
     { label: 'LEVEL SELECT', action: onOpenLevelSelect },
     { label: 'SETTINGS', action: onOpenSettings },
-    {
-      label: 'QUIT',
-      action: () => {
-        setShowQuitConfirm(true);
-      },
-    },
+    { label: 'KELUAR / GANTI PEMAIN', action: onSwitchPlayer },
   ];
 
   // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (showQuitConfirm) {
-        if (e.key === 'Escape') {
-          setShowQuitConfirm(false);
-          sound.playSelect();
-        }
-        return;
-      }
-
       if (e.key === 'ArrowUp' || e.key === 'w' || e.key === 'W') {
         e.preventDefault();
         setSelectedIndex((prev) => {
@@ -77,7 +67,7 @@ export const MainMenu: React.FC<MainMenuProps> = ({
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [selectedIndex, showQuitConfirm, menuItems]);
+  }, [selectedIndex, menuItems]);
 
   return (
     <div className="relative w-full h-full min-h-screen bg-[#070709] text-white flex flex-col justify-center px-8 sm:px-14 md:px-20 lg:px-28 py-10 overflow-hidden select-none font-sans">
@@ -135,16 +125,31 @@ export const MainMenu: React.FC<MainMenuProps> = ({
           SPECTRA
         </h1>
 
-        {/* Subtitle & Progress */}
-        <div className="flex flex-wrap items-center gap-3 mb-5 sm:mb-7">
-          <p className="font-mono text-[10px] sm:text-xs md:text-sm tracking-[0.26em] text-[#8C8C96] uppercase">
-            A STUDY IN CHROMATIC DIVISION AND RETURN
-          </p>
-          {completedCount > 0 && (
-            <span className="font-mono text-[10px] tracking-widest px-2.5 py-0.5 rounded-full bg-[#48D1CC]/15 border border-[#48D1CC]/30 text-[#48D1CC] uppercase">
-              PROGRES: {completedCount}/{LEVELS.length} SELESAI
-            </span>
-          )}
+        {/* Subtitle & Active Player Metadata */}
+        <p className="font-mono text-[10px] sm:text-xs md:text-sm tracking-[0.26em] text-[#8C8C96] uppercase mb-3">
+          A STUDY IN CHROMATIC DIVISION AND RETURN
+        </p>
+
+        <div className="flex flex-wrap items-center gap-2.5 text-xs font-mono text-slate-300 mb-5 sm:mb-7 tabular-nums">
+          <span>
+            Pemain: <strong className="text-white font-semibold">{playerName}</strong>
+          </span>
+          <span className="text-slate-600" aria-hidden="true">·</span>
+          <span className="text-slate-400">
+            {completedCount}/{LEVELS.length} level selesai
+          </span>
+          <span className="text-slate-600" aria-hidden="true">·</span>
+          <button
+            id="btn-menu-inline-switch-player"
+            type="button"
+            onClick={() => {
+              sound.playSelect();
+              onSwitchPlayer();
+            }}
+            className="text-slate-300 hover:text-white underline underline-offset-4 decoration-white/30 hover:decoration-white transition-colors cursor-pointer whitespace-nowrap"
+          >
+            Keluar
+          </button>
         </div>
 
         {/* Hairline Divider */}
@@ -198,42 +203,6 @@ export const MainMenu: React.FC<MainMenuProps> = ({
         </nav>
       </main>
 
-      {/* Minimalist Quit Confirmation Dialog */}
-      {showQuitConfirm && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm">
-          <div className="bg-[#0D0D12] border border-white/20 p-8 max-w-sm w-full text-center shadow-2xl">
-            <h3 className="font-serif-display text-2xl text-white tracking-wider mb-2">
-              QUIT SPECTRA
-            </h3>
-            <p className="font-mono text-xs text-[#8A8A96] tracking-[0.15em] mb-6">
-              ARE YOU SURE YOU WANT TO QUIT?
-            </p>
-            <div className="flex justify-center space-x-4">
-              <button
-                id="btn-quit-cancel"
-                onClick={() => {
-                  sound.playSelect();
-                  setShowQuitConfirm(false);
-                }}
-                className="font-mono text-xs tracking-[0.2em] px-4 py-2 text-[#8A8A96] hover:text-white border border-white/10 hover:border-white/30 transition-colors uppercase"
-              >
-                CANCEL
-              </button>
-              <button
-                id="btn-quit-confirm"
-                onClick={() => {
-                  sound.playSelect();
-                  setShowQuitConfirm(false);
-                  window.location.reload();
-                }}
-                className="font-mono text-xs tracking-[0.2em] px-4 py-2 bg-white/10 hover:bg-white/20 text-white border border-white/30 transition-colors uppercase"
-              >
-                CONFIRM
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

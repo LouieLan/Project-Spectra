@@ -4,6 +4,7 @@ import { RotateCcw, Menu, Volume2, VolumeX } from 'lucide-react';
 
 interface GameHUDProps {
   level: LevelData;
+  playerName?: string;
   activeColor?: SpectralColor;
   characters?: ActiveCharacter[];
   collectedItemIds: string[];
@@ -15,6 +16,7 @@ interface GameHUDProps {
 
 export const GameHUD: React.FC<GameHUDProps> = ({
   level,
+  playerName,
   collectedItemIds,
   onRestart,
   onOpenMenu,
@@ -46,9 +48,9 @@ export const GameHUD: React.FC<GameHUDProps> = ({
           {/* Level Indicator */}
           <div
             id="UI_TeksLevel"
-            className="bg-[#070709]/85 backdrop-blur-md border border-white/10 px-3.5 py-1.5 rounded-lg text-white/90 font-mono text-xs md:text-sm tracking-widest uppercase shadow-md"
+            className="bg-[#070709]/85 backdrop-blur-md border border-white/10 px-3.5 py-1.5 rounded-lg text-white/90 font-mono text-xs md:text-sm tracking-widest uppercase shadow-md max-w-[240px] truncate"
           >
-            LEVEL {level.id}
+            {playerName ? `${playerName} · LEVEL ${level.id}` : `LEVEL ${level.id}`}
           </div>
 
           {/* Reset Button */}

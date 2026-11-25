@@ -4,17 +4,21 @@ import { sound } from '../audio';
 import { ArrowLeft, Check, Lock, Play, RotateCcw } from 'lucide-react';
 
 interface LevelSelectProps {
+  playerName: string;
   onSelectLevel: (levelId: number) => void;
   onBack: () => void;
   completedLevels: number[];
   onResetProgress?: () => void;
+  onSwitchPlayer?: () => void;
 }
 
 export const LevelSelect: React.FC<LevelSelectProps> = ({
+  playerName,
   onSelectLevel,
   onBack,
   completedLevels,
   onResetProgress,
+  onSwitchPlayer,
 }) => {
   const [shakingId, setShakingId] = useState<number | null>(null);
   const [lockedNotice, setLockedNotice] = useState<string | null>(null);
@@ -105,12 +109,12 @@ export const LevelSelect: React.FC<LevelSelectProps> = ({
             <span>KEMBALI KE MENU</span>
           </button>
 
-          <div className="flex items-center space-x-4">
-            <div className="text-right">
-              <span className="text-xs font-mono text-white/70">
-                PROGRES: <strong className="text-white">{completedCount}</strong>/{totalLevels} SELESAI
-              </span>
-            </div>
+          <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-xs font-mono">
+            <span className="text-white/70 tabular-nums">
+              Pemain: <strong className="text-white">{playerName}</strong>
+              <span className="mx-2 text-white/30" aria-hidden="true">·</span>
+              PROGRES: <strong className="text-white">{completedCount}</strong>/{totalLevels} SELESAI
+            </span>
             {onResetProgress && completedCount > 0 && (
               <button
                 id="btn-level-select-reset-progress"
@@ -119,9 +123,21 @@ export const LevelSelect: React.FC<LevelSelectProps> = ({
                   setShowResetConfirm(true);
                 }}
                 className="text-[11px] font-mono text-white/40 hover:text-red-400 transition-colors cursor-pointer"
-                title="Reset progres permainan"
+                title="Reset progres permainan pemain ini"
               >
                 Reset
+              </button>
+            )}
+            {onSwitchPlayer && (
+              <button
+                id="btn-level-select-switch-player"
+                onClick={() => {
+                  sound.playSelect();
+                  onSwitchPlayer();
+                }}
+                className="text-[11px] font-mono text-white/60 hover:text-white underline underline-offset-4 decoration-white/25 hover:decoration-white transition-colors cursor-pointer whitespace-nowrap"
+              >
+                Ganti Pemain
               </button>
             )}
           </div>

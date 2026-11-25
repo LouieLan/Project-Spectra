@@ -1,8 +1,19 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { GameSettings, LevelData, ScreenType, SpectralColor, ActiveCharacter } from './types';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import { GameSettings, LevelData, ScreenType, SpectralColor, ActiveCharacter, PlayerProfile } from './types';
 import { LEVELS } from './levels';
 import { sound } from './audio';
 import { input } from './input';
+import {
+  loadProfiles,
+  loadActivePlayerId,
+  saveActivePlayerId,
+  loginOrCreateProfile,
+  selectExistingProfile,
+  markPlayerLevelCompleted,
+  resetPlayerProfileProgress,
+  deletePlayerProfile,
+} from './playerStorage';
+import { PlayerSelectScreen } from './components/PlayerSelectScreen';
 import { MainMenu } from './components/MainMenu';
 import { LevelSelect } from './components/LevelSelect';
 import { CanvasRenderer } from './components/CanvasRenderer';
@@ -15,7 +26,27 @@ import { WinScreen } from './components/WinScreen';
 import { RGBDiagramModal } from './components/RGBDiagramModal';
 
 export default function App() {
-  const [screen, setScreen] = useState<ScreenType>('menu');
+  // Multi-player local profiles persisted in localStorage
+  const [profiles, setProfiles] = useState<PlayerProfile[]>(() => loadProfiles());
+  const [activePlayerId, setActivePlayerId] = useState<string | null>(() => {
+    const savedId = loadActivePlayerId();
+    const list = loadProfiles();
+    return savedId && list.some((p) => p.id === savedId) ? savedId : null;
+  });
+
+  const activePlayer = useMemo(
+    () => profiles.find((p) => p.id === activePlayerId) || null,
+    [profiles, activePlayerId]
+  );
+
+  const completedLevels = useMemo(
+    () => (activePlayer ? activePlayer.completedLevels : []),
+    [activePlayer]
+  );
+
+  const [screen, setScreen] = useState<ScreenType>(() =>
+    activePlayer ? 'menu' : 'player_select'
+  );
   const [currentLevelId, setCurrentLevelId] = useState<number>(1);
   const [isPaused, setIsPaused] = useState<boolean>(false);
   const [isStageClear, setIsStageClear] = useState<boolean>(false);
@@ -30,16 +61,6 @@ export default function App() {
   const [characters, setCharacters] = useState<ActiveCharacter[]>([]);
   // Collected Item IDs for current level
   const [collectedItemIds, setCollectedItemIds] = useState<string[]>([]);
-
-  // Completed levels persisted in localStorage
-  const [completedLevels, setCompletedLevels] = useState<number[]>(() => {
-    try {
-      const saved = localStorage.getItem('spectrum_clone_completed_levels');
-      return saved ? JSON.parse(saved) : [];
-    } catch {
-      return [];
-    }
-  });
 
   // Settings
   const [settings, setSettings] = useState<GameSettings>({
@@ -146,16 +167,63 @@ export default function App() {
     setScreen('playing');
   };
 
-  // Reset all game progress
-  const handleResetProgress = useCallback(() => {
-    try {
-      localStorage.removeItem('spectrum_clone_completed_levels');
-    } catch {
-      // ignore storage error
-    }
-    setCompletedLevels([]);
-    sound.playSelect();
+  // Player profile handlers (multi-player on single device)
+  const handleSubmitPlayerName = useCallback(
+    (name: string) => {
+      const { profile, profiles: updated } = loginOrCreateProfile(name, profiles);
+      setProfiles(updated);
+      setActivePlayerId(profile.id);
+      setIsPaused(false);
+      setIsStageClear(false);
+      setScreen('menu');
+    },
+    [profiles]
+  );
+
+  const handleSelectExistingProfile = useCallback(
+    (playerId: string) => {
+      const { profile, profiles: updated } = selectExistingProfile(playerId, profiles);
+      if (!profile) return;
+      setProfiles(updated);
+      setActivePlayerId(profile.id);
+      setIsPaused(false);
+      setIsStageClear(false);
+      setScreen('menu');
+    },
+    [profiles]
+  );
+
+  const handleDeleteProfile = useCallback(
+    (playerId: string) => {
+      const { profiles: updated, nextActivePlayerId } = deletePlayerProfile(
+        playerId,
+        profiles,
+        activePlayerId
+      );
+      setProfiles(updated);
+      setActivePlayerId(nextActivePlayerId);
+    },
+    [profiles, activePlayerId]
+  );
+
+  const handleSwitchPlayer = useCallback(() => {
+    input.reset();
+    saveActivePlayerId(null);
+    setActivePlayerId(null);
+    setIsPaused(false);
+    setIsStageClear(false);
+    setActiveColor('white');
+    setCharacters([]);
+    setCollectedItemIds([]);
+    setScreen('player_select');
   }, []);
+
+  // Reset active player's game progress
+  const handleResetProgress = useCallback(() => {
+    if (!activePlayerId) return;
+    setProfiles((prev) => resetPlayerProfileProgress(activePlayerId, prev));
+    sound.playSelect();
+  }, [activePlayerId]);
 
   // Color change callback from portal interaction
   const handleColorChanged = useCallback((newColor: SpectralColor) => {
@@ -172,24 +240,16 @@ export default function App() {
 
   // Stage clear handler
   const handleStageComplete = useCallback(() => {
-    setCompletedLevels((prev) => {
-      if (prev.includes(currentLevelId)) return prev;
-      const updated = [...prev, currentLevelId];
-      try {
-        localStorage.setItem('spectrum_clone_completed_levels', JSON.stringify(updated));
-      } catch {
-        // ignore storage error
-      }
-      return updated;
-    });
+    if (activePlayerId) {
+      setProfiles((prev) => markPlayerLevelCompleted(activePlayerId, currentLevelId, prev));
+    }
 
     if (currentLevelId >= LEVELS.length) {
-      // Completed all 7 levels -> Show Layar_Menang (WinScreen)
       setScreen('win_screen');
     } else {
       setIsStageClear(true);
     }
-  }, [currentLevelId]);
+  }, [activePlayerId, currentLevelId]);
 
   // Next level progression
   const handleNextStage = () => {
@@ -219,9 +279,20 @@ export default function App() {
 
   return (
     <main className="relative w-screen h-screen bg-[#070709] text-[#F5F5F5] overflow-hidden select-none font-sans">
+      {/* 0. INPUT NAMA / PILIH PEMAIN */}
+      {(screen === 'player_select' || !activePlayer) && (
+        <PlayerSelectScreen
+          profiles={profiles}
+          onSubmitName={handleSubmitPlayerName}
+          onSelectProfile={handleSelectExistingProfile}
+          onDeleteProfile={handleDeleteProfile}
+        />
+      )}
+
       {/* 1. MENU UTAMA */}
-      {screen === 'menu' && (
+      {screen === 'menu' && activePlayer && (
         <MainMenu
+          playerName={activePlayer.name}
           onStartGame={handleStartGame}
           onOpenLevelSelect={() => {
             sound.playSelect();
@@ -235,16 +306,19 @@ export default function App() {
             sound.playSelect();
             setShowRGBModal(true);
           }}
+          onSwitchPlayer={handleSwitchPlayer}
           completedLevels={completedLevels}
         />
       )}
 
       {/* 2. PILIH LEVEL */}
-      {screen === 'level_select' && (
+      {screen === 'level_select' && activePlayer && (
         <LevelSelect
+          playerName={activePlayer.name}
           completedLevels={completedLevels}
           onSelectLevel={handleSelectLevel}
           onResetProgress={handleResetProgress}
+          onSwitchPlayer={handleSwitchPlayer}
           onBack={() => {
             sound.playSelect();
             setScreen('menu');
@@ -252,8 +326,8 @@ export default function App() {
         />
       )}
 
-      {/* 3. PLAYING SCREEN (Level 1 s/d 7) */}
-      {screen === 'playing' && (
+      {/* 3. PLAYING SCREEN */}
+      {screen === 'playing' && activePlayer && (
         <div className="relative w-full h-full">
           <CanvasRenderer
             level={currentLevel}
@@ -273,6 +347,7 @@ export default function App() {
 
           <GameHUD
             level={currentLevel}
+            playerName={activePlayer.name}
             activeColor={activeColor}
             characters={characters}
             collectedItemIds={collectedItemIds}
@@ -293,6 +368,7 @@ export default function App() {
           {/* Pause Modal */}
           {isPaused && (
             <PauseModal
+              playerName={activePlayer.name}
               onResume={() => setIsPaused(false)}
               onRestart={handleRestart}
               onLevelSelect={() => {
@@ -304,6 +380,7 @@ export default function App() {
                 setIsPaused(false);
                 setScreen('menu');
               }}
+              onSwitchPlayer={handleSwitchPlayer}
             />
           )}
 
@@ -324,9 +401,10 @@ export default function App() {
         </div>
       )}
 
-      {/* 4. LAYAR MENANG (All 7 Levels Complete) */}
-      {screen === 'win_screen' && (
+      {/* 4. LAYAR MENANG */}
+      {screen === 'win_screen' && activePlayer && (
         <WinScreen
+          playerName={activePlayer.name}
           onReturnToMenu={() => {
             sound.playSelect();
             setScreen('menu');
@@ -335,6 +413,7 @@ export default function App() {
             sound.playSelect();
             handleStartGame();
           }}
+          onSwitchPlayer={handleSwitchPlayer}
         />
       )}
 

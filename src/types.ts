@@ -1,4 +1,12 @@
-export type ScreenType = 'menu' | 'level_select' | 'playing' | 'win_screen' | 'settings';
+export type ScreenType = 'player_select' | 'menu' | 'level_select' | 'playing' | 'win_screen' | 'settings';
+
+export interface PlayerProfile {
+  id: string;
+  name: string;
+  completedLevels: number[];
+  createdAt: number;
+  lastPlayedAt: number;
+}
 
 export type SpectralColor = 'white' | 'red' | 'green' | 'blue' | 'cyan' | 'yellow' | 'magenta';
 

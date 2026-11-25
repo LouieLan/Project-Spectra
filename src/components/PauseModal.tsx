@@ -1,21 +1,25 @@
 import React, { useEffect } from 'react';
 import { sound } from '../audio';
-import { Play, RotateCcw, Grid, Sliders, Home } from 'lucide-react';
+import { Play, RotateCcw, Grid, Sliders, Home, LogOut } from 'lucide-react';
 
 interface PauseModalProps {
+  playerName?: string;
   onResume: () => void;
   onRestart: () => void;
   onLevelSelect: () => void;
   onSettings: () => void;
   onMainMenu: () => void;
+  onSwitchPlayer?: () => void;
 }
 
 export const PauseModal: React.FC<PauseModalProps> = ({
+  playerName,
   onResume,
   onRestart,
   onLevelSelect,
   onSettings,
   onMainMenu,
+  onSwitchPlayer,
 }) => {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -32,7 +36,7 @@ export const PauseModal: React.FC<PauseModalProps> = ({
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md select-none font-sans">
       <div className="relative w-full max-w-sm bg-[#1B1B2F] border border-white/20 rounded-2xl p-6 md:p-8 text-center shadow-2xl">
         <div className="text-[11px] font-mono font-bold tracking-widest text-[#48D1CC] uppercase">
-          SPECTRUM CLONE
+          {playerName ? `PEMAIN: ${playerName}` : 'SPECTRA'}
         </div>
         <h2 className="text-2xl font-black text-white mt-1 mb-6 uppercase">
           JEDA PERMAINAN
@@ -98,6 +102,20 @@ export const PauseModal: React.FC<PauseModalProps> = ({
             <Home size={15} />
             <span>MENU UTAMA</span>
           </button>
+
+          {onSwitchPlayer && (
+            <button
+              id="btn-pause-switch-player"
+              onClick={() => {
+                sound.playSelect();
+                onSwitchPlayer();
+              }}
+              className="w-full flex items-center justify-center space-x-2 py-2.5 rounded-lg bg-white/5 border border-white/15 text-white/60 hover:text-white hover:bg-white/10 text-xs font-medium tracking-wider uppercase transition-colors cursor-pointer"
+            >
+              <LogOut size={15} />
+              <span>KELUAR / GANTI PEMAIN</span>
+            </button>
+          )}
         </div>
       </div>
     </div>
